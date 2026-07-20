@@ -1,0 +1,15 @@
+insert into public.categories (id, slug, name)
+values ('b5a1d7e4-4c20-4a5c-8a8c-016bc1047a01', 'ordinateurs-portables', 'Ordinateurs portables')
+on conflict (slug) do nothing;
+
+insert into public.fiches_produits (slug, manufacturer, ref, category, range, title, summary, fiche, images, sources, verified)
+values (
+  'hp-omnibook-5-16-bc1047nr', 'HP', 'B7NG1UA#ABA', 'ordinateurs-portables', 'Milieu de gamme supérieur — polyvalent',
+  'OmniBook 5 Laptop 16-bc1047nr',
+  'Grand portable polyvalent : Ryzen 7 8840U, Radeon 780M, 16 Go LPDDR5 et écran IPS 16 pouces 2K.',
+  $$ {"couleur":"Glacier Silver, aluminium finition mate","marche":"États-Unis — Windows 11 Home","statut_commercial":"Fiche vérifiée ; prix et stock local à définir avant publication","points_cles":["AMD Ryzen 7 8840U : 8 cœurs, 16 threads, jusqu’à 5,1 GHz","Radeon 780M intégrée et 16 Go LPDDR5-6400","SSD PCIe Gen4 NVMe de 512 Go","Écran IPS 16 pouces 2K au format 16:10, antireflet","Wi‑Fi 6E, caméra FHD IR, deux USB-C, HDMI 2.1 et pavé numérique rétroéclairé"],"specifications":{"processeur":{"modele":"AMD Ryzen 7 8840U","coeurs":8,"threads":16,"frequence_turbo_max":"5,1 GHz","cache":"16 Mo L3"},"memoire":{"capacite":"16 Go","type":"LPDDR5 intégrée","vitesse":"6400 MT/s","emplacements_accessibles":0},"stockage":{"capacite":"512 Go","type":"SSD M.2 PCIe Gen4 NVMe"},"graphismes":{"integre":"AMD Radeon 780M Graphics"},"ecran":{"taille":"16 pouces","dalle":"IPS, micro-bords, antireflet","definition":"1920 × 1200 px (2K), 16:10","luminosite":"300 nits","gamut":"62,5 % sRGB","tactile":false},"batterie_et_alimentation":{"batterie":"59 Wh, 3 cellules, lithium-polymère","autonomie_annoncee":"jusqu’à 14 h 45","charge_rapide":"environ 50 % en 30 minutes","adaptateur_inclus":"USB-C 65 W"},"dimensions_et_poids":{"largeur":"35,77 cm","profondeur":"25,48 cm","hauteur_avant":"1,79 cm","hauteur_arriere":"1,86 cm","poids":"1,79 kg"},"systeme_et_securite":{"systeme":"Windows 11 Home","garantie":"Garantie matérielle limitée d’un an","certifications":["ENERGY STAR","EPEAT Gold avec Climate+"]}}} $$::jsonb,
+  array['/media/produits/hp-omnibook-5-16-bc1047nr/01-hero.webp','/media/produits/hp-omnibook-5-16-bc1047nr/02-ouvert.jpg','/media/produits/hp-omnibook-5-16-bc1047nr/03-ecran.jpg','/media/produits/hp-omnibook-5-16-bc1047nr/04-dimensions.png','/media/produits/hp-omnibook-5-16-bc1047nr/05-connectique.png'],
+  $$ [{"nom":"HP — fiche produit officielle","url":"https://www.hp.com/us-en/shop/pdp/hp-omnibook-5-laptop-16-bc1047nr"},{"nom":"HP — datasheet officielle","url":"https://h20195.www2.hp.com/v2/getpdf.aspx/c09146803.pdf"},{"nom":"LaptopVIP — visuels du modèle exact","url":"https://www.laptopvip.vn/hp-omnibook-5-16-bc1047nr.html"}] $$::jsonb,
+  date '2026-07-20'
+)
+on conflict (slug) do update set manufacturer = excluded.manufacturer, ref = excluded.ref, category = excluded.category, range = excluded.range, title = excluded.title, summary = excluded.summary, fiche = excluded.fiche, images = excluded.images, sources = excluded.sources, verified = excluded.verified, updated_at = now();

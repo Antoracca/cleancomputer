@@ -1,0 +1,16 @@
+{
+  "slug":"hp-elitebook-850-g8-3c7z6ea",
+  "marque":"HP",
+  "modele":"EliteBook 850 G8",
+  "reference_fabricant":"3C7Z6EA#AKD",
+  "gamme":"Professionnel reconditionné — économique",
+  "couleur":"Argent naturel",
+  "marche":"Europe — Windows 10 Pro d’origine",
+  "statut_commercial":"Fiche vérifiée ; prix, état et stock local à définir avant publication",
+  "resume":"Portable professionnel 15,6 pouces à grand écran, pertinent en reconditionné pour la bureautique et le télétravail, avec Core i5 de 11e génération, 16 Go et SSD 512 Go.",
+  "points_cles":["Intel Core i5-1135G7, 4 cœurs, jusqu’à 4,2 GHz","16 Go DDR4-3200 et SSD PCIe NVMe 512 Go","Écran IPS Full HD 15,6 pouces antireflet","Wi‑Fi 6, Bluetooth 5, HDMI 2.0, deux Thunderbolt 4 et RJ-45","Clavier résistant aux éclaboussures avec pavé numérique, TPM et lecteur d’empreintes"],
+  "specifications":{"processeur":{"modele":"Intel Core i5-1135G7","coeurs":4,"threads":8,"frequence_turbo_max":"4,2 GHz","cache":"8 Mo L3"},"memoire":{"capacite":"16 Go","type":"DDR4","vitesse":"3200 MT/s","emplacements_totaux":2},"stockage":{"capacite":"512 Go","type":"SSD M.2 PCIe Gen3 NVMe"},"graphismes":{"integre":"Intel Iris Xe Graphics"},"ecran":{"taille":"15,6 pouces","dalle":"IPS, antireflet","definition":"1920 × 1080 px (Full HD)"},"connectivite":{"wifi":"Wi‑Fi 6","bluetooth":"5.0","ethernet":"RJ-45 Gigabit","ports":["2 × USB-A 5 Gb/s","2 × USB-C / Thunderbolt 4","1 × HDMI 2.0","1 × RJ-45","1 × prise casque/micro combinée"]},"camera_et_audio":{"camera":"720p HD avec obturateur de confidentialité","audio":["Bang & Olufsen","Deux haut-parleurs","Deux microphones"]},"clavier_et_pave_tactile":{"clavier":"Rétroéclairé, résistant aux éclaboussures, pavé numérique","pave_tactile":"Clickpad multipoint"},"batterie_et_alimentation":{"batterie":"56 Wh, 3 cellules, lithium-ion","adaptateur_inclus":"65 W"},"dimensions_et_poids":{"largeur":"35,6 cm","profondeur":"23,37 cm","hauteur":"1,92 cm","poids":"à partir de 1,68 kg"},"systeme_et_securite":{"systeme":"Windows 10 Pro 64 bits (origine)","securite":["TPM 2.0","lecteur d’empreintes","obturateur de caméra"],"garantie_origine":"3 ans limitée"}},
+  "images":["/media/produits/hp-elitebook-850-g8-3c7z6ea/01-vue.jpg","/media/produits/hp-elitebook-850-g8-3c7z6ea/02-vue.jpg","/media/produits/hp-elitebook-850-g8-3c7z6ea/03-vue.jpg","/media/produits/hp-elitebook-850-g8-3c7z6ea/04-vue.jpg","/media/produits/hp-elitebook-850-g8-3c7z6ea/05-vue.jpg"],
+  "sources":[{"nom":"HP — caractéristiques EliteBook 850 G8","url":"https://support.hp.com/us-en/document/c06973781","usage":"Caractéristiques de plateforme"},{"nom":"HP — fiche de configuration 3C7Z6EA#AKD","url":"https://www.voip24sklep.pl/pl/p/file/c7900536b469c16a7f12c506970d0d6a/Product-Data-Sheet-HP-EB-850-G8-i5-1135G7-15-16-512-W10P3C7Z6EAAKD.pdf","usage":"Configuration exacte"},{"nom":"Shoplet — visuels de la configuration","url":"https://shoplet.pl/laptopy-hp/48049-laptop-hp-elitebook-850-g8-i5-1135g7-16gb-512gb-ssd-nvme-fhd-w11-5905902099761.html","usage":"Galerie produit"}],
+  "verifie_le":"2026-07-20"
+}

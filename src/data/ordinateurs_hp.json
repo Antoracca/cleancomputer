@@ -1,0 +1,162 @@
+[
+  {
+    "id": "hp-spectre-x360-14-2024",
+    "marque": "HP",
+    "gamme": "Haut de gamme (Premium Convertible)",
+    "modele": "Spectre x360 14 (2024)",
+    "description_courte": "Le summum du PC portable hybride haut de gamme. Design ultra-fin, matériaux nobles, écran OLED époustouflant et performances exceptionnelles optimisées par l'Intelligence Artificielle.",
+    "prix_estime_xaf": 1350000,
+    "images": [
+      "/media/produits/hp-spectre-x360/front.png",
+      "/media/produits/hp-spectre-x360/side.png",
+      "/media/produits/hp-spectre-x360/tent.png",
+      "/media/produits/hp-spectre-x360/keyboard.png",
+      "/media/produits/hp-spectre-x360/back.png"
+    ],
+    "caracteristiques_principales": [
+      "Processeur Intel Core Ultra 7 155H",
+      "Écran 14 pouces OLED 2.8K tactile 120Hz",
+      "32 Go RAM LPDDR5x",
+      "1 To SSD PCIe NVMe",
+      "Design convertible 360°"
+    ],
+    "specifications_techniques": {
+      "processeur": "Intel Core Ultra 7 155H avec Intel AI Boost",
+      "memoire_vive": "32 Go LPDDR5x",
+      "stockage": "1 To SSD PCIe NVMe",
+      "ecran": "14 pouces OLED (2880 x 1800), tactile, 120Hz",
+      "carte_graphique": "Intel Arc Graphics",
+      "systeme_exploitation": "Windows 11 Professionnel",
+      "batterie": "68 Wh",
+      "poids": "1.44 kg"
+    }
+  },
+  {
+    "id": "hp-15s",
+    "marque": "HP",
+    "gamme": "Entrée de gamme (Essentiel)",
+    "modele": "HP 15s",
+    "description_courte": "Un ordinateur portable fiable et abordable, idéal pour la bureautique, les études et la navigation web au quotidien.",
+    "prix_estime_xaf": 320000,
+    "images": [
+      "/media/produits/hp-15s/front.png",
+      "/media/produits/hp-15s/side.png",
+      "/media/produits/hp-15s/top.png",
+      "/media/produits/hp-15s/keyboard.png",
+      "/media/produits/hp-15s/back.png"
+    ],
+    "caracteristiques_principales": [
+      "Processeur Intel Core i3",
+      "Écran 15.6 pouces FHD",
+      "8 Go RAM DDR4",
+      "256 Go SSD",
+      "Clavier avec pavé numérique"
+    ],
+    "specifications_techniques": {
+      "processeur": "Intel Core i3-1215U",
+      "memoire_vive": "8 Go DDR4",
+      "stockage": "256 Go SSD PCIe NVMe",
+      "ecran": "15.6 pouces FHD (1920 x 1080) anti-reflets",
+      "carte_graphique": "Intel UHD Graphics",
+      "systeme_exploitation": "Windows 11 Famille",
+      "batterie": "41 Wh",
+      "poids": "1.69 kg"
+    }
+  },
+  {
+    "id": "hp-pavilion-14",
+    "marque": "HP",
+    "gamme": "Milieu de gamme (Polyvalent)",
+    "modele": "Pavilion 14",
+    "description_courte": "Compact, performant et élégant. Le compagnon parfait pour le télétravail et le divertissement avec un son signé B&O.",
+    "prix_estime_xaf": 550000,
+    "images": [
+      "/media/produits/hp-pavilion-14/front.png",
+      "/media/produits/hp-pavilion-14/side.png",
+      "/media/produits/hp-pavilion-14/top.png",
+      "/media/produits/hp-pavilion-14/keyboard.png",
+      "/media/produits/hp-pavilion-14/back.png"
+    ],
+    "caracteristiques_principales": [
+      "Processeur Intel Core i5",
+      "Écran 14 pouces FHD IPS",
+      "16 Go RAM DDR4",
+      "512 Go SSD",
+      "Audio B&O"
+    ],
+    "specifications_techniques": {
+      "processeur": "Intel Core i5-1335U",
+      "memoire_vive": "16 Go DDR4",
+      "stockage": "512 Go SSD PCIe NVMe",
+      "ecran": "14 pouces FHD (1920 x 1080) IPS, micro-bords",
+      "carte_graphique": "Intel Iris Xe Graphics",
+      "systeme_exploitation": "Windows 11 Famille",
+      "batterie": "43 Wh",
+      "poids": "1.41 kg"
+    }
+  },
+  {
+    "id": "hp-elitebook-840",
+    "marque": "HP",
+    "gamme": "Haut de gamme (Professionnel)",
+    "modele": "EliteBook 840 G10",
+    "description_courte": "L'outil de travail ultime pour les professionnels exigeants. Sécurité maximale, châssis en aluminium robuste et performances exceptionnelles.",
+    "prix_estime_xaf": 980000,
+    "images": [
+      "/media/produits/hp-elitebook-840/front.png",
+      "/media/produits/hp-elitebook-840/side.png",
+      "/media/produits/hp-elitebook-840/top.png",
+      "/media/produits/hp-elitebook-840/keyboard.png",
+      "/media/produits/hp-elitebook-840/back.png"
+    ],
+    "caracteristiques_principales": [
+      "Processeur Intel Core i7 vPro",
+      "Écran 14 pouces WUXGA",
+      "16 Go RAM DDR5",
+      "512 Go SSD",
+      "Sécurité HP Wolf Pro"
+    ],
+    "specifications_techniques": {
+      "processeur": "Intel Core i7-1355U (vPro)",
+      "memoire_vive": "16 Go DDR5",
+      "stockage": "512 Go SSD PCIe NVMe",
+      "ecran": "14 pouces WUXGA (1920 x 1200) IPS",
+      "carte_graphique": "Intel Iris Xe Graphics",
+      "systeme_exploitation": "Windows 11 Professionnel",
+      "batterie": "51 Wh",
+      "poids": "1.36 kg"
+    }
+  },
+  {
+    "id": "hp-omen-16",
+    "marque": "HP",
+    "gamme": "Très Haut de gamme (Gaming / Création)",
+    "modele": "OMEN 16",
+    "description_courte": "Une machine de guerre pour les joueurs passionnés et les créateurs de contenu. Refroidissement extrême et puissance graphique de pointe.",
+    "prix_estime_xaf": 1500000,
+    "images": [
+      "/media/produits/hp-omen-16/front.png",
+      "/media/produits/hp-omen-16/side.png",
+      "/media/produits/hp-omen-16/top.png",
+      "/media/produits/hp-omen-16/keyboard.png",
+      "/media/produits/hp-omen-16/back.png"
+    ],
+    "caracteristiques_principales": [
+      "Processeur AMD Ryzen 7 / Intel Core i7",
+      "NVIDIA GeForce RTX 4070",
+      "Écran 16.1 pouces QHD 165Hz",
+      "32 Go RAM DDR5",
+      "Refroidissement OMEN Tempest"
+    ],
+    "specifications_techniques": {
+      "processeur": "AMD Ryzen 7 7840HS (ou équivalent Intel)",
+      "memoire_vive": "32 Go DDR5-5600 MHz",
+      "stockage": "1 To SSD PCIe Gen4 NVMe",
+      "ecran": "16.1 pouces QHD (2560 x 1440), 165Hz, 3 ms, IPS",
+      "carte_graphique": "NVIDIA GeForce RTX 4070 (8 Go GDDR6)",
+      "systeme_exploitation": "Windows 11 Famille",
+      "batterie": "83 Wh",
+      "poids": "2.35 kg"
+    }
+  }
+]

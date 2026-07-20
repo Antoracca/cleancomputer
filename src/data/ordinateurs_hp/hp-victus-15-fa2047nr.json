@@ -1,0 +1,37 @@
+{
+  "slug": "hp-victus-15-fa2047nr",
+  "marque": "HP",
+  "modele": "Victus Gaming Laptop 15-fa2047nr",
+  "reference_fabricant": "B8BH1UA#ABA",
+  "gamme": "Milieu de gamme — gaming performant",
+  "couleur": "Mica silver, logo noir chromé",
+  "marche": "États-Unis — Windows 11 Home",
+  "statut_commercial": "Fiche vérifiée ; prix et stock local à définir avant publication",
+  "resume": "Portable gaming équilibré : Core i5-13420H, RTX 4050 6 Go, 16 Go de mémoire et SSD 1 To, pour jouer en Full HD et travailler confortablement.",
+  "points_cles": [
+    "Intel Core i5-13420H : 8 cœurs, 12 threads, jusqu’à 4,6 GHz",
+    "NVIDIA GeForce RTX 4050 Laptop GPU avec 6 Go GDDR6",
+    "16 Go DDR5-5200 et SSD PCIe NVMe de 1 To",
+    "Écran IPS Full HD 15,6 pouces à 144 Hz, antireflet, 300 nits",
+    "Wi‑Fi 6E, Ethernet Gigabit, HDMI 2.1, USB-C DisplayPort et clavier rétroéclairé avec pavé numérique"
+  ],
+  "specifications": {
+    "processeur": { "modele": "Intel Core i5-13420H", "coeurs": 8, "threads": 12, "frequence_turbo_max": "4,6 GHz", "cache": "12 Mo L3" },
+    "memoire": { "capacite": "16 Go (2 × 8 Go)", "type": "DDR5", "vitesse": "5200 MT/s" },
+    "stockage": { "capacite": "1 To", "type": "SSD PCIe NVMe" },
+    "graphismes": { "integre": "Intel UHD Graphics", "dedie": "NVIDIA GeForce RTX 4050 Laptop GPU", "memoire_video": "6 Go GDDR6" },
+    "ecran": { "taille": "15,6 pouces", "dalle": "IPS, micro-bords, antireflet", "definition": "1920 × 1080 px (Full HD)", "frequence": "144 Hz", "luminosite": "300 nits", "gamut": "62,5 % sRGB" },
+    "connectivite": { "ethernet": "LAN Gigabit intégré", "wifi": "Intel Wi‑Fi 6E AX211, 2 × 2", "bluetooth": "5.3", "ports": ["2 × USB-A 5 Gb/s (dont un HP Sleep and Charge)", "1 × USB-C 5 Gb/s (DisplayPort 1.4a, HP Sleep and Charge)", "1 × HDMI 2.1", "1 × RJ-45", "1 × prise casque/micro combinée", "1 × connecteur HP Smart Pin"] },
+    "camera_et_audio": { "camera": "HP Wide Vision 720p HD avec réduction temporelle du bruit et deux microphones", "audio": ["Deux haut-parleurs", "HP Audio Boost", "DTS:X Ultra"] },
+    "clavier_et_pave_tactile": { "clavier": "Taille standard, rétroéclairé Moonstone Gray, pavé numérique", "pave_tactile": "HP Imagepad" },
+    "batterie_et_alimentation": { "batterie": "70 Wh, 4 cellules, lithium-polymère", "charge_rapide": "environ 50 % en 30 minutes", "adaptateur_inclus": "120 W" },
+    "dimensions_et_poids": { "largeur": "35,79 cm", "profondeur": "25,50 cm", "hauteur": "2,36 cm", "poids": "2,30 kg" },
+    "systeme_et_securite": { "systeme": "Windows 11 Home", "securite": ["TPM micrologiciel pris en charge"], "garantie": "Garantie matérielle limitée d’un an" }
+  },
+  "images": ["/media/produits/hp-victus-15-fa2047nr/01-hero.jpg", "/media/produits/hp-victus-15-fa2047nr/02-avant-gauche.jpg", "/media/produits/hp-victus-15-fa2047nr/03-avant-droit.jpg", "/media/produits/hp-victus-15-fa2047nr/04-arriere-gauche.jpg", "/media/produits/hp-victus-15-fa2047nr/05-detail-clavier.jpg"],
+  "sources": [
+    { "nom": "HP — fiche produit officielle", "url": "https://www.hp.com/us-en/shop/pdp/victus-gaming-laptop-15-fa2047nr", "usage": "Référence B8BH1UA#ABA et spécifications" },
+    { "nom": "HyperX / HP — fiche et galerie officielle", "url": "https://hyperx.com/products/victus-gaming-laptop-15-fa2047nr", "usage": "Spécifications détaillées et visuels officiels" }
+  ],
+  "verifie_le": "2026-07-20"
+}

@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Documents fiscaux et pieces d identite de l entreprise
+# (portent le NIU et un QR code d authentification)
+docs/*.pdf

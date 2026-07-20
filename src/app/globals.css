@@ -1,26 +1,230 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ============================================================================
+   CLEAN COMPUTER — DESIGN SYSTEM
+   Adaptation du système Mastercard (skills/DESIGN-mastercard.md) à l'identité
+   bleue #0148B2. On garde la grammaire, on inverse la température.
+   Référence complète : docs/DESIGN-DIRECTION.md
+   ========================================================================= */
+
+@theme {
+  /* --- SURFACES ---------------------------------------------------------
+     Jamais de blanc pur en fond de page. Le canevas est toujours teinté. */
+  --color-frost: #f1f4f9;        /* canevas par défaut */
+  --color-frost-lifted: #fafbfd; /* section imbriquée — papier sur papier */
+  --color-white: #ffffff;        /* nav, modales, satellites, btn secondaire */
+
+  /* --- ENCRE ------------------------------------------------------------
+     Presque-noir FROID. Le crème chaud de Mastercard devient bleuté. */
+  --color-ink: #0f1520;
+  --color-charcoal: #242a35;
+
+  /* --- MARQUE -----------------------------------------------------------
+     Bleu échantillonné sur le logo. N'est PAS la couleur du CTA primaire. */
+  --color-brand: #0148b2;
+  --color-brand-deep: #01337e;
+  --color-orbit: #3b82e8;        /* arcs orbitaux décoratifs UNIQUEMENT */
+
+  /* --- NEUTRES ---------------------------------------------------------- */
+  --color-slate: #697586;        /* texte secondaire, eyebrow */
+  --color-graphite: #4b5563;
+  --color-mist: #cbd3df;         /* traits, texte murmuré */
+  --color-ghost: #e4e9f2;        /* titres filigranes, squelettes */
+
+  /* --- SIGNAL RÉSERVÉ ---------------------------------------------------
+     Consentement / légal EXCLUSIVEMENT. Jamais un CTA marketing. */
+  --color-signal: #c2410c;
+
+  /* --- SÉMANTIQUE (statuts uniquement, jamais décoratif) ---------------- */
+  --color-success: #0f766e;
+  --color-warning: #b45309;
+  --color-danger: #b42318;
+
+  /* --- TYPOGRAPHIE ------------------------------------------------------
+     Une seule famille. Sofia Sans = substitut open source désigné par
+     Mastercard elle-même dans sa propre pile de secours. */
+  --font-sans: var(--font-sofia), "Sofia Sans", system-ui, sans-serif;
+
+  /* Échelle — l'interligne se resserre quand la taille grandit.
+     H1 = 1:1, H3 = 1.2, corps = 1.4 */
+  --text-hero: 4rem;             /* 64px desktop */
+  --text-hero--line-height: 1;
+  --text-hero--letter-spacing: -0.02em;
+  --text-hero--font-weight: 500;
+
+  --text-display: 2.25rem;       /* 36px — H2 section */
+  --text-display--line-height: 1.22;
+  --text-display--letter-spacing: -0.02em;
+  --text-display--font-weight: 500;
+
+  --text-title: 1.5rem;          /* 24px — H3 carte */
+  --text-title--line-height: 1.2;
+  --text-title--letter-spacing: -0.02em;
+  --text-title--font-weight: 500;
+
+  --text-body: 1rem;             /* 16px — poids 450, signature du système */
+  --text-body--line-height: 1.4;
+  --text-body--font-weight: 450;
+
+  --text-eyebrow: 0.875rem;      /* 14px — MAJUSCULES +4%, seul cas autorisé */
+  --text-eyebrow--line-height: 1;
+  --text-eyebrow--letter-spacing: 0.04em;
+  --text-eyebrow--font-weight: 700;
+
+  --text-action: 1rem;           /* 16px — boutons et liens nav */
+  --text-action--line-height: 1;
+  --text-action--letter-spacing: -0.03em;
+  --text-action--font-weight: 500;
+
+  /* --- RAYONS -----------------------------------------------------------
+     L'échelle saute volontairement 8→16px. Ce trou est ce qui empêche
+     l'interface de retomber dans le générique. */
+  --radius-micro: 4px;
+  --radius-action: 20px;         /* CTA — le rayon signature */
+  --radius-chip: 24px;
+  --radius-frame: 40px;          /* cadres média, grands conteneurs */
+  --radius-pill: 999px;          /* nav, puces, champs */
+
+  /* --- ÉLÉVATION --------------------------------------------------------
+     Coussin d'atmosphère, pas lumière directionnelle.
+     Flou ≥ 24px, opacité ≤ 10%. Aucune ombre serrée nulle part. */
+  --shadow-nav: 0 4px 24px rgba(15, 21, 32, 0.04);
+  --shadow-frame: 0 24px 48px rgba(15, 21, 32, 0.08);
+  --shadow-feature: 0 70px 110px rgba(15, 21, 32, 0.22);
+
+  /* --- MOUVEMENT --------------------------------------------------------
+     Une seule courbe pour tout le système. La retenue fait le premium. */
+  --ease-out-soft: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-soft: cubic-bezier(0.65, 0, 0.35, 1);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* ============================================================================
+   BASE
+   ========================================================================= */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-frost);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    font-weight: 450;
+    line-height: 1.4;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-synthesis-weight: none; /* Sofia Sans est variable : pas de faux gras */
+  }
+
+  /* Titres : poids 500 + interlettrage -2%. Les mots se verrouillent. */
+  h1, h2, h3, h4 {
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Focus visible cohérent sur tout le système — accessibilité non négociable */
+  :focus-visible {
+    outline: 2px solid var(--color-brand);
+    outline-offset: 3px;
+    border-radius: var(--radius-micro);
+  }
+
+  ::selection {
+    background-color: var(--color-brand);
+    color: var(--color-frost);
+  }
+
+  /* Le canevas ne bouge jamais latéralement, quel que soit le contenu */
+  body {
+    overflow-x: clip;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ============================================================================
+   ANIMATIONS
+   Réservées aux moments à fort impact : entrée de page, tracé des orbites,
+   comptage au scroll. Jamais d'animation gratuite.
+   ========================================================================= */
+
+@keyframes cc-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes cc-draw {
+  from {
+    stroke-dashoffset: var(--cc-path-length, 1000);
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes cc-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.45;
+  }
+}
+
+@keyframes cc-satellite-in {
+  from {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@utility animate-reveal {
+  animation: cc-reveal 0.7s var(--ease-out-soft) both;
+}
+
+@utility animate-draw {
+  animation: cc-draw 1.6s var(--ease-in-out-soft) both;
+}
+
+/* Squelette : pulsation lente, sans miroitement clinquant.
+   1,8s — assez lent pour se lire comme « ça charge », pas comme un clignotant. */
+@utility skeleton {
+  background-color: var(--color-ghost);
+  animation: cc-pulse 1.8s var(--ease-in-out-soft) infinite;
+}
+
+/* ============================================================================
+   ACCESSIBILITÉ — MOUVEMENT RÉDUIT
+   Respecté strictement : tout s'arrête, rien ne casse.
+   ========================================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

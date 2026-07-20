@@ -1,0 +1,129 @@
+{
+  "slug": "hp-omen-max-16-ah0097nr",
+  "marque": "HP",
+  "modele": "OMEN MAX Gaming Laptop 16-ah0097nr",
+  "reference_fabricant": "B64BNUA#ABA",
+  "gamme": "Très haut de gamme — gaming et création",
+  "couleur": "Shadow black : aluminium sur le couvercle et la base, barre lumineuse, cadre de clavier RGB et logo noir chromé",
+  "marche": "États-Unis — Windows 11 Home",
+  "statut_commercial": "Fiche vérifiée ; prix et stock local à définir avant publication",
+  "resume": "Portable gaming et création de niveau extrême, équipé d’un Core Ultra 9 275HX et d’une RTX 5080 Laptop GPU 16 Go, avec écran 16 pouces WQXGA 240 Hz.",
+  "points_cles": [
+    "Intel Core Ultra 9 275HX : 24 cœurs, 24 threads, jusqu’à 5,4 GHz",
+    "NVIDIA GeForce RTX 5080 Laptop GPU avec 16 Go GDDR7",
+    "32 Go DDR5-5600 et SSD PCIe Gen4 NVMe de 1 To",
+    "Écran IPS WQXGA 16 pouces, 240 Hz, 3 ms, 500 nits, 100 % sRGB",
+    "Wi‑Fi 7, 2 × Thunderbolt 4, HDMI 2.1, Ethernet 2,5 GbE et clavier RGB touche par touche"
+  ],
+  "specifications": {
+    "processeur": {
+      "modele": "Intel Core Ultra 9 275HX",
+      "coeurs": 24,
+      "threads": 24,
+      "frequence_turbo_max": "5,4 GHz",
+      "cache": "36 Mo L3",
+      "npu": "Intel AI Boost, 13 TOPS"
+    },
+    "memoire": {
+      "capacite": "32 Go (2 × 16 Go)",
+      "type": "DDR5",
+      "vitesse": "5600 MT/s"
+    },
+    "stockage": {
+      "capacite": "1 To",
+      "type": "SSD M.2 PCIe Gen4 NVMe",
+      "emplacements_m2": 2
+    },
+    "graphismes": {
+      "integre": "Intel Graphics",
+      "dedie": "NVIDIA GeForce RTX 5080 Laptop GPU",
+      "memoire_video": "16 Go GDDR7"
+    },
+    "ecran": {
+      "taille": "16 pouces",
+      "dalle": "IPS, micro-bords, antireflet, Low Blue Light",
+      "definition": "2560 × 1600 px (WQXGA), 16:10",
+      "frequence": "60–240 Hz",
+      "temps_reponse": "3 ms",
+      "luminosite": "500 nits",
+      "gamut": "100 % sRGB",
+      "certifications_et_fonctions": [
+        "Eyesafe",
+        "Flicker Free"
+      ]
+    },
+    "connectivite": {
+      "ethernet": "LAN intégré 2,5 GbE (10/100/1000/2500)",
+      "wifi": "Intel Wi‑Fi 7 BE200, 2 × 2",
+      "bluetooth": "5.4",
+      "ports": [
+        "2 × USB-A 10 Gb/s",
+        "2 × Thunderbolt 4 / USB-C 40 Gb/s (USB Power Delivery 3.1, DisplayPort 2.1, HP Sleep and Charge)",
+        "1 × HDMI 2.1",
+        "1 × RJ-45",
+        "1 × prise casque/microphone combinée",
+        "1 × connecteur d’alimentation HP Smart Pin"
+      ]
+    },
+    "camera_et_audio": {
+      "camera": "HP True Vision IR Full HD 1080p, réduction temporelle du bruit et deux microphones numériques intégrés",
+      "securite_camera": "Obturateur de confidentialité",
+      "audio": [
+        "Deux haut-parleurs",
+        "HP Audio Boost",
+        "HyperX",
+        "DTS:X Ultra"
+      ]
+    },
+    "clavier_et_pave_tactile": {
+      "clavier": "Taille standard, rétroéclairage RGB touche par touche, pavé numérique, technologie NKRO Anti-Ghosting",
+      "pave_tactile": "HP Imagepad",
+      "eclairage": "Barre lumineuse et cadre de clavier RGB"
+    },
+    "refroidissement_et_capteurs": {
+      "refroidissement": "Ventilateurs auto-nettoyants, chambre à vapeur et métal liquide",
+      "capteur": "Capteur thermique IR"
+    },
+    "batterie_et_alimentation": {
+      "batterie": "83 Wh, 6 cellules, lithium-polymère",
+      "charge_rapide": "environ 50 % en 30 minutes (ordinateur éteint, adaptateur HP fourni)",
+      "adaptateur_inclus": "330 W"
+    },
+    "dimensions_et_poids": {
+      "largeur": "14,04 pouces (35,66 cm)",
+      "profondeur": "10,59 pouces (26,90 cm)",
+      "hauteur_avant": "0,90 pouce (2,29 cm)",
+      "hauteur_arriere": "0,98 pouce (2,49 cm)",
+      "poids": "6,1 lb (2,77 kg)"
+    },
+    "systeme_et_securite": {
+      "systeme": "Windows 11 Home",
+      "securite": [
+        "Obturateur de caméra",
+        "TPM micrologiciel pris en charge"
+      ],
+      "garantie": "Garantie matérielle limitée d’un an",
+      "efficacite_energetique": "ENERGY STAR"
+    }
+  },
+  "images": [
+    "/media/produits/hp-omen-max-16-ah0097nr/01-hero.jpg",
+    "/media/produits/hp-omen-max-16-ah0097nr/02-avant-gauche.jpg",
+    "/media/produits/hp-omen-max-16-ah0097nr/03-avant-droit.jpg",
+    "/media/produits/hp-omen-max-16-ah0097nr/04-arriere.jpg",
+    "/media/produits/hp-omen-max-16-ah0097nr/05-profil-gauche.jpg"
+  ],
+  "sources": [
+    {
+      "nom": "HP — fiche technique officielle",
+      "url": "https://www.hp.com/us-en/shop/pdp/omen-max-gaming-laptop-16-ah0097nr-b64bnua-aba",
+      "usage": "Spécifications de la configuration B64BNUA#ABA"
+    },
+    {
+      "nom": "HyperX / HP — galerie officielle",
+      "url": "https://hyperx.com/products/omen-max-gaming-laptop-16-ah0097nr",
+      "usage": "Galerie et contrôle visuel des images"
+    }
+  ],
+  "verifie_le": "2026-07-20"
+}

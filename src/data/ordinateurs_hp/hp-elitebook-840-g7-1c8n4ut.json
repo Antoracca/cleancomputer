@@ -1,0 +1,28 @@
+{
+  "slug": "hp-elitebook-840-g7-1c8n4ut",
+  "marque": "HP",
+  "modele": "EliteBook 840 G7",
+  "reference_fabricant": "1C8N4UT#ABA",
+  "gamme": "Professionnel reconditionné — économique",
+  "couleur": "Argent naturel",
+  "marche": "États-Unis — Windows 10 Pro d’origine",
+  "statut_commercial": "Fiche vérifiée ; prix, état et stock local à définir avant publication",
+  "resume": "Portable professionnel 14 pouces abordable, adapté à la bureautique, aux études et aux visioconférences. La mémoire et le SSD peuvent être configurés ou mis à niveau selon le stock reconditionné.",
+  "points_cles": ["Intel Core i5-10210U, 4 cœurs, jusqu’à 4,2 GHz", "8 Go DDR4 et SSD NVMe 256 Go dans cette référence exacte", "Écran tactile IPS Full HD Sure View 1000 nits", "Wi‑Fi 6, 4G LTE-A, deux Thunderbolt 3 et HDMI 1.4b", "Châssis professionnel : lecteur d’empreintes, caméra IR, cache-caméra et TPM"],
+  "specifications": {
+    "processeur": {"modele":"Intel Core i5-10210U","coeurs":4,"threads":8,"frequence_turbo_max":"4,2 GHz","cache":"6 Mo L3"},
+    "memoire":{"capacite":"8 Go (1 × 8 Go)","type":"DDR4","vitesse":"2666 MT/s","emplacements_totaux":2,"evolutive_jusqua":"64 Go"},
+    "stockage":{"capacite":"256 Go","type":"SSD M.2 PCIe NVMe"},
+    "graphismes":{"integre":"Intel UHD Graphics"},
+    "ecran":{"taille":"14 pouces","dalle":"IPS tactile, antireflet, HP Sure View intégré","definition":"1920 × 1080 px (Full HD)","frequence":"60 Hz","luminosite":"1000 nits","gamut":"72 % NTSC"},
+    "connectivite":{"wifi":"Intel Wi‑Fi 6 AX201, 2 × 2","bluetooth":"5.0","wwan":"Intel XMM 7360 LTE-Advanced","nfc":true,"ports":["2 × USB-A 3.1 Gen 1 dont un port de charge","2 × USB-C / Thunderbolt 3 avec DisplayPort","1 × HDMI 1.4b","1 × prise casque/micro combinée"]},
+    "camera_et_audio":{"camera":"720p HD + caméra IR, cache de confidentialité","audio":["Bang & Olufsen","Deux haut-parleurs stéréo","3 microphones multi-array"]},
+    "clavier_et_pave_tactile":{"clavier":"HP Premium résistant aux éclaboussures, rétroéclairé","pave_tactile":"Clickpad multipoint"},
+    "batterie_et_alimentation":{"batterie":"53 Wh, 3 cellules, lithium-polymère","adaptateur_inclus":"65 W"},
+    "dimensions_et_poids":{"largeur":"32,36 cm","profondeur":"21,46 cm","hauteur":"1,78 cm","poids":"1,34 kg"},
+    "systeme_et_securite":{"systeme":"Windows 10 Pro 64 bits (origine)","securite":["TPM matériel","lecteur d’empreintes","caméra IR","cache-caméra","lecteur NFC"],"garantie_origine":"3 ans limitée"}
+  },
+  "images":["/media/produits/hp-elitebook-840-g7-1c8n4ut/01-vue.jpg","/media/produits/hp-elitebook-840-g7-1c8n4ut/02-vue.jpg","/media/produits/hp-elitebook-840-g7-1c8n4ut/03-vue.jpg","/media/produits/hp-elitebook-840-g7-1c8n4ut/04-detail-ecran.jpg","/media/produits/hp-elitebook-840-g7-1c8n4ut/05-detail-clavier.jpg"],
+  "sources":[{"nom":"HP — famille EliteBook 840 G7","url":"https://support.hp.com/es-es/document/c06692748","usage":"Caractéristiques de la plateforme"},{"nom":"B&H — configuration 1C8N4UT#ABA","url":"https://www.bhphotovideo.com/c/product/1570696-REG/hp_1c8n4ut_aba_840_g7_i5_10210u_8gb.html","usage":"Configuration exacte et visuels"}],
+  "verifie_le":"2026-07-20"
+}

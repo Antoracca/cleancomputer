@@ -1,0 +1,114 @@
+[
+  {
+    "id": "byd",
+    "brand": "BYD",
+    "type": "voiture",
+    "models": "Seal, Atto 3, Han",
+    "description": "Leader mondial de l'électrique. Design avant-gardiste et technologies de pointe.",
+    "priceFCFA": "18 000 000",
+    "logoPath": "https://upload.wikimedia.org/wikipedia/en/c/cd/Logo_Y_Byd.png",
+    "imagePaths": [
+      "https://upload.wikimedia.org/wikipedia/commons/0/08/BYD_Seal_08_006.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/7/73/BYD_Seal_08_001.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/b/b0/BYD_Seal_08_005.jpg"
+    ]
+  },
+  {
+    "id": "geely",
+    "brand": "Geely",
+    "type": "voiture",
+    "models": "Coolray, Monjaro",
+    "description": "Design moderne et finitions premium pour une expérience de conduite exceptionnelle.",
+    "priceFCFA": "14 500 000",
+    "logoPath": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Geely_Galaxy_logo_%28Chinese%2C_vertical%29.svg",
+    "imagePaths": [
+      "https://upload.wikimedia.org/wikipedia/commons/d/d6/Moscow%2C_rental_BG_%28BelGee%2C_Belarusian_Geely%29_Coolray%2C_April_2025_01.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/f/f6/Moscow%2C_rental_Geely_Coolray_%28Belkacar%29_April_2025_01.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/1/1c/Moscow%2C_red_rental_Geely_Coolray_April_2025_02.jpg"
+    ]
+  },
+  {
+    "id": "chery",
+    "brand": "Chery",
+    "type": "voiture",
+    "models": "Tiggo 7 Pro, Tiggo 8 Pro",
+    "description": "L'alliance parfaite entre confort familial et innovations technologiques.",
+    "priceFCFA": "13 000 000",
+    "logoPath": "https://upload.wikimedia.org/wikipedia/en/0/06/Chery_Automobile.png",
+    "imagePaths": [
+      "https://upload.wikimedia.org/wikipedia/commons/9/95/2024_Chery_Tiggo_7_Pro_1.5_Premium_in_Ruby_Red.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/0/04/2024_Chery_Tiggo7_Pro_Max_white_front.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/0/0b/2023_Chery_Tiggo7_Pro_Max_grey_rear.jpg"
+    ]
+  },
+  {
+    "id": "changan",
+    "brand": "Changan",
+    "type": "voiture",
+    "models": "CS35 Plus, UNI-T",
+    "description": "Esthétique futuriste et performances dynamiques pour la ville et l'aventure.",
+    "priceFCFA": "12 500 000",
+    "logoPath": "https://upload.wikimedia.org/wikipedia/en/3/31/Changan_Automobile_Logo.svg",
+    "imagePaths": [
+      "https://upload.wikimedia.org/wikipedia/commons/4/4a/Changan_CS35_Plus_facelift_IMG004.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/a/a6/Changan_CS35_Plus_001.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/6/65/Changan_CS35_Plus_facelift_IMG008.jpg"
+    ]
+  },
+  {
+    "id": "gwm",
+    "brand": "GWM (Haval)",
+    "type": "voiture",
+    "models": "Jolion, H6",
+    "description": "Spécialiste incontesté des SUV robustes, fiables et élégants.",
+    "priceFCFA": "15 000 000",
+    "logoPath": "https://upload.wikimedia.org/wikipedia/en/4/43/Great_Wall_Motors_2020_logo.png",
+    "imagePaths": [
+      "https://upload.wikimedia.org/wikipedia/commons/2/2f/GWM_HAVAL_JOLION_VANCE_Rear.png",
+      "https://upload.wikimedia.org/wikipedia/commons/2/2d/GWM_HAVAL_JOLION_VANCE_Front.png",
+      "https://upload.wikimedia.org/wikipedia/commons/d/dc/GWM_Haval_Jolion_Pro_Ditzingen_Mobil_2026_IMG_5523.jpg"
+    ]
+  },
+  {
+    "id": "cfmoto",
+    "brand": "CFMoto",
+    "type": "moto",
+    "models": "300NK, 450SR",
+    "description": "Motos sportives et agiles pour des sensations fortes sur route et circuit.",
+    "priceFCFA": "2 800 000",
+    "logoPath": "https://upload.wikimedia.org/wikipedia/en/7/7f/CFMoto2023.svg",
+    "imagePaths": [
+      "https://upload.wikimedia.org/wikipedia/commons/b/b6/Moscow_Traffic_Control_Center_CFMoto_motorcycles%2C_Sept_2025_05.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/7/7a/Moscow_Traffic_Control_Center_CFMoto_motorcycles%2C_Sept_2025_04.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/5/58/Moscow_Traffic_Control_Center_CFMoto_motorcycles%2C_Sept_2025_08.jpg"
+    ]
+  },
+  {
+    "id": "zontes",
+    "brand": "Zontes",
+    "type": "moto",
+    "models": "310T, 310V",
+    "description": "Design audacieux et équipements ultra-modernes pour un usage quotidien premium.",
+    "priceFCFA": "3 200 000",
+    "logoPath": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Car_icon_alone.png/120px-Car_icon_alone.png",
+    "imagePaths": [
+      "https://upload.wikimedia.org/wikipedia/commons/c/c9/Zontes_350D_in_Avellino.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/8/8e/Zontes_motorcycle_in_Athens_on_9-29-2023.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/a/a2/Zontes_350E.jpg"
+    ]
+  },
+  {
+    "id": "haojue",
+    "brand": "Haojue",
+    "type": "moto",
+    "models": "DR160, TR150",
+    "description": "La référence incontournable de la fiabilité et de la durabilité.",
+    "priceFCFA": "1 500 000",
+    "logoPath": "https://upload.wikimedia.org/wikipedia/commons/6/61/Haojue_Holdings_logo.svg",
+    "imagePaths": [
+      "https://upload.wikimedia.org/wikipedia/commons/5/54/Haojue_HJ125-8_rear.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/a/af/Haojue_HJ_150-9_2012_%289233660313%29.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/6/69/Haojue_DKS150_at_Yangzhahuandao_20240404164435.jpg"
+    ]
+  }
+]
