@@ -101,13 +101,11 @@ const METIERS = [
         title: "Votre logo et votre identité visuelle",
         description: "Logo, couleurs, charte complète. Vous repartez avec tous les fichiers, prêts à l'emploi.",
         image: "/LOGO/photoshop.jpg",
-        objectFit: "contain",
       },
       {
         title: "Création de contenu vidéo",
         description: "Vente de logiciel de montage Premiere Pro et création de contenu sur mesure.",
         image: "/LOGO/premierpro.jpg",
-        objectFit: "contain",
       }
     ]
   },
