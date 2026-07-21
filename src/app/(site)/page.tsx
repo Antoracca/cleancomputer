@@ -50,19 +50,19 @@ const METIERS = [
       {
         title: "Ordinateurs, pièces & accessoires",
         description: "Du matériel de qualité professionnelle, sourcé et testé. Arrivages réguliers et sur commande.",
-        image: "/LOGO/materiels1.jfif",
+        image: "/LOGO/materiels1.jpg",
         objectFit: "contain",
       },
       {
         title: "Large gamme de matériels",
         description: "Trouvez tout ce dont vous avez besoin pour équiper votre entreprise ou votre domicile.",
-        image: "/LOGO/materiels2.jfif",
+        image: "/LOGO/materiels2.jpg",
         objectFit: "contain",
       },
       {
         title: "Qualité garantie",
         description: "Des produits fiables et durables, avec un service après-vente à votre écoute.",
-        image: "/LOGO/materiels3.jfif",
+        image: "/LOGO/materiels3.jpg",
         objectFit: "contain",
       }
     ]
@@ -87,6 +87,7 @@ const METIERS = [
         title: "Cloud Computing & Réseaux",
         description: "Architecture Cloud, déploiement de serveurs et gestion complète de votre infrastructure.",
         image: "/LOGO/cloud-computing-architecture.png",
+        objectFit: "contain",
       }
     ]
   },
@@ -99,12 +100,14 @@ const METIERS = [
       {
         title: "Votre logo et votre identité visuelle",
         description: "Logo, couleurs, charte complète. Vous repartez avec tous les fichiers, prêts à l'emploi.",
-        image: "/LOGO/photoshop.jfif",
+        image: "/LOGO/photoshop.jpg",
+        objectFit: "contain",
       },
       {
         title: "Création de contenu vidéo",
         description: "Vente de logiciel de montage Premiere Pro et création de contenu sur mesure.",
-        image: "/LOGO/premierpro.jfif",
+        image: "/LOGO/premierpro.jpg",
+        objectFit: "contain",
       }
     ]
   },
@@ -128,7 +131,7 @@ const METIERS = [
       {
         title: "Paiement marchand et PayPal",
         description: "Création de compte PayPal professionnel, dépôt et retrait, envoi PayPal.",
-        image: "/LOGO/paypal.jfif",
+        image: "/LOGO/paypal.jpg",
         objectFit: "contain",
       }
     ]
