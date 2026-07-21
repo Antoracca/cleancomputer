@@ -119,7 +119,7 @@ export const OPERATEURS: readonly Operateur[] = [
   {
     id: "orange-money",
     nom: "Orange Money",
-    logo: "/LOGO/orangemonney.png",
+    logo: "/logo/orangemonney.png",
     logoSurBlanc: true,
     baseline: "Sur le téléphone du bénéficiaire",
     fraisPct: { depuisCF: 10.5, versCF: 5 },
@@ -132,7 +132,7 @@ export const OPERATEURS: readonly Operateur[] = [
   {
     id: "moneygram",
     nom: "MoneyGram",
-    logo: "/LOGO/logo-moneygram-black.svg",
+    logo: "/logo/logo-moneygram-black.svg",
     logoSurBlanc: true,
     baseline: "Retrait en espèces ou versement bancaire",
     fraisPct: { depuisCF: 10.2, versCF: 10.2 },
@@ -143,7 +143,7 @@ export const OPERATEURS: readonly Operateur[] = [
   {
     id: "western-union",
     nom: "Western Union",
-    logo: "/LOGO/WESTERN.svg",
+    logo: "/logo/WESTERN.svg",
     logoSurBlanc: true,
     baseline: "Le réseau le plus dense",
     // ⚠️ TODO_TARIFS : barème jamais communiqué. Aligné provisoirement sur

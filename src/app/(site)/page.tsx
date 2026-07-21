@@ -50,19 +50,19 @@ const METIERS = [
       {
         title: "Ordinateurs, pièces & accessoires",
         description: "Du matériel de qualité professionnelle, sourcé et testé. Arrivages réguliers et sur commande.",
-        image: "/LOGO/materiels1.jpg",
+        image: "/logo/materiels1.jpg",
         objectFit: "contain",
       },
       {
         title: "Large gamme de matériels",
         description: "Trouvez tout ce dont vous avez besoin pour équiper votre entreprise ou votre domicile.",
-        image: "/LOGO/materiels2.jpg",
+        image: "/logo/materiels2.jpg",
         objectFit: "contain",
       },
       {
         title: "Qualité garantie",
         description: "Des produits fiables et durables, avec un service après-vente à votre écoute.",
-        image: "/LOGO/materiels3.jpg",
+        image: "/logo/materiels3.jpg",
         objectFit: "contain",
       }
     ]
@@ -76,17 +76,17 @@ const METIERS = [
       {
         title: "Conception de site web",
         description: "Création de sites vitrines et plateformes e-commerce sur mesure, optimisés pour votre activité.",
-        image: "/LOGO/conception1.webp",
+        image: "/logo/conception1.webp",
       },
       {
         title: "Développement d'applications",
         description: "Solutions logicielles performantes et sécurisées pour automatiser vos processus d'entreprise.",
-        image: "/LOGO/CONCEPTION2.avif",
+        image: "/logo/CONCEPTION2.avif",
       },
       {
         title: "Cloud Computing & Réseaux",
         description: "Architecture Cloud, déploiement de serveurs et gestion complète de votre infrastructure.",
-        image: "/LOGO/cloud-computing-architecture.png",
+        image: "/logo/cloud-computing-architecture.png",
         objectFit: "contain",
       }
     ]
@@ -100,12 +100,12 @@ const METIERS = [
       {
         title: "Votre logo et votre identité visuelle",
         description: "Logo, couleurs, charte complète. Vous repartez avec tous les fichiers, prêts à l'emploi.",
-        image: "/LOGO/photoshop.jpg",
+        image: "/logo/photoshop.jpg",
       },
       {
         title: "Création de contenu vidéo",
         description: "Vente de logiciel de montage Premiere Pro et création de contenu sur mesure.",
-        image: "/LOGO/premierpro.jpg",
+        image: "/logo/premierpro.jpg",
       }
     ]
   },
@@ -118,18 +118,18 @@ const METIERS = [
       {
         title: "Envoyez de l'argent en toute clarté",
         description: "Vous voyez ce que vous envoyez, ce que ça coûte et ce qui arrive, avant de valider.",
-        images: ["/LOGO/WESTERN.svg", "/LOGO/logo-moneygram-black.svg"],
+        images: ["/logo/WESTERN.svg", "/logo/logo-moneygram-black.svg"],
       },
       {
         title: "Orange Money vers le Maroc",
         description: "Transférer à des frais imbattables allant jusqu'à 8%. De la Centrafrique vers le Maroc, et inversement.",
-        image: "/LOGO/orangemonney.png",
+        image: "/logo/orangemonney.png",
         objectFit: "contain",
       },
       {
         title: "Paiement marchand et PayPal",
         description: "Création de compte PayPal professionnel, dépôt et retrait, envoi PayPal.",
-        image: "/LOGO/paypal.jpg",
+        image: "/logo/paypal.jpg",
         objectFit: "contain",
       }
     ]
