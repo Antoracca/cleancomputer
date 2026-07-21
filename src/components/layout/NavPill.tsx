@@ -86,28 +86,10 @@ export function NavPill() {
             className="flex shrink-0 items-center rounded-pill py-2 pr-3 pl-2"
             aria-label="Clean Computer — accueil"
           >
-            {/* Le logo complet n'apparaît qu'à partir de lg.
-                Entre 640 et 1024px, la pilule porte déjà cinq liens et quatre
-                icônes : le lettrage s'y écrasait et se coupait. En dessous de
-                lg, seul le pictogramme est affiché — il reste lisible à toute
-                taille et ne subit aucune compression.
-                `shrink-0` est indispensable : sans lui, le conteneur flex
-                comprime l'image avant les liens. */}
-            <Image
+            <img
               src="/brand/logo-full.png"
               alt="Clean Computer"
-              width={336}
-              height={91}
-              priority
-              className="hidden h-7 w-auto shrink-0 lg:block"
-            />
-            <Image
-              src="/brand/logo-mark.png"
-              alt="Clean Computer"
-              width={512}
-              height={512}
-              priority
-              className="size-9 shrink-0 object-contain lg:hidden"
+              className="h-7 max-w-[140px] sm:max-w-[180px] md:max-w-[200px] w-auto shrink-0 object-contain"
             />
           </Link>
 
