@@ -49,10 +49,11 @@ export function AuthShell({
           />
         </Link>
 
-        <div className="grid gap-14 lg:grid-cols-[1fr_28rem] lg:items-center xl:gap-20">
+        <div className="grid lg:grid-cols-[1fr_28rem] lg:items-center xl:gap-20">
           
-          {/* Colonne de gauche : Argumentaire très visuel (façon MoneyGram) */}
-          <div className="animate-reveal relative z-10 flex flex-col gap-6 lg:gap-8">
+          {/* Colonne de gauche : Argumentaire très visuel (façon MoneyGram)
+              Cachée sur mobile pour afficher directement le formulaire */}
+          <div className="animate-reveal relative z-10 hidden flex-col gap-6 lg:flex lg:gap-8">
             <span className="text-[1.0625rem] font-bold tracking-[-0.01em] text-[#2c6ecb]">
               {eyebrow}
             </span>

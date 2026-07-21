@@ -135,7 +135,7 @@ export function NavPill() {
             >
               <Search size={19} strokeWidth={1.75} />
             </IconButton>
-            <IconButton label="Mon compte" href="/compte" className="hidden sm:grid">
+            <IconButton label="Mon compte" href="/compte" className="grid">
               <User size={19} strokeWidth={1.75} />
             </IconButton>
             <IconButton
