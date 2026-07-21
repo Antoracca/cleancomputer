@@ -1,10 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { ArrowRight, Check } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Simulateur } from "@/features/transfert/Simulateur";
+import { ParcoursEnvoi } from "@/features/transfert/ParcoursEnvoi";
 import { OPERATEURS, type OperateurId } from "@/lib/data/transfert";
 import { cn } from "@/lib/utils/cn";
 
@@ -24,14 +25,55 @@ import { cn } from "@/lib/utils/cn";
  * remonter provoquerait un saut de mise en page et perdrait la saisie en cours
  * si l'utilisateur revient en arrière.
  */
-export function ChoixCanal() {
-  const [canal, setCanal] = useState<OperateurId | null>(null);
-  const [etape, setEtape] = useState<0 | 1>(0);
+export function ChoixCanal({
+  canalInitial,
+  masquerRetour = false,
+}: {
+  /** Fourni par `?service=moneygram` : le canal est déjà choisi, on saute
+   *  directement au parcours d'envoi. */
+  readonly canalInitial?: OperateurId | undefined;
+  /**
+   * Sur une page dédiée à un opérateur, « Changer de service » n'a pas de
+   * sens : il ramènerait vers un sélecteur que la page entière contredit.
+   * Le logo de l'opérateur est également superflu, la page l'affiche déjà.
+   */
+  readonly masquerRetour?: boolean;
+}) {
+  const [canal, setCanal] = useState<OperateurId | null>(canalInitial ?? null);
+  const [etape, setEtape] = useState<0 | 1>(canalInitial ? 1 : 0);
+  // Renseigné quand le montant est validé : on passe alors du calcul à la
+  // saisie du dossier.
+  const [dossier, setDossier] = useState<{
+    montant: number;
+    departCode: string;
+    arriveeCode: string;
+  } | null>(null);
+
+  const ancre = useRef<HTMLDivElement>(null);
+
+  // Le recentrage ne doit pas jouer au tout premier rendu. Avec un canal
+  // préchoisi par `?service=`, la page démarre à l'étape 1 et sauterait sous
+  // les yeux du visiteur à l'arrivée, sans qu'aucune transition ait eu lieu.
+  const premierRendu = useRef(true);
+
+  // Même raison que dans ParcoursEnvoi : on ramène l'utilisateur en haut du
+  // bloc quand le contenu change, sinon la transition passe inaperçue.
+  useEffect(() => {
+    if (premierRendu.current) {
+      premierRendu.current = false;
+      return;
+    }
+    if (etape === 0 && !dossier) return;
+    const noeud = ancre.current;
+    if (!noeud) return;
+    const y = noeud.getBoundingClientRect().top + window.scrollY - 140;
+    window.scrollTo({ top: Math.max(0, y), behavior: "smooth" });
+  }, [etape, dossier]);
 
   const choisi = OPERATEURS.find((o) => o.id === canal);
 
   return (
-    <div className="overflow-hidden">
+    <div ref={ancre} className="overflow-hidden">
       <div
         className={cn(
           "flex w-[200%] transition-transform duration-500 ease-out-soft",
@@ -131,30 +173,53 @@ export function ChoixCanal() {
           inert={etape === 0 ? true : undefined}
         >
           <div className="flex flex-col gap-6">
-            <div className="flex flex-wrap items-center justify-between gap-4">
-              <button
-                type="button"
-                onClick={() => setEtape(0)}
-                className="inline-flex min-h-11 items-center gap-2 text-[0.9375rem] text-graphite transition-colors hover:text-ink"
-              >
-                <ArrowRight size={16} aria-hidden className="rotate-180" />
-                Changer de service
-              </button>
+            {masquerRetour ? null : (
+              <div className="flex flex-wrap items-center justify-between gap-4">
+                <button
+                  type="button"
+                  onClick={() => setEtape(0)}
+                  className="inline-flex min-h-11 items-center gap-2 text-[0.9375rem] text-graphite transition-colors hover:text-ink"
+                >
+                  <ArrowRight size={16} aria-hidden className="rotate-180" />
+                  Changer de service
+                </button>
 
-              {choisi ? (
-                <span className="relative h-7 w-32">
-                  <Image
-                    src={choisi.logo}
-                    alt={choisi.nom}
-                    fill
-                    sizes="128px"
-                    className="object-contain object-right"
-                  />
-                </span>
-              ) : null}
-            </div>
+                {choisi ? (
+                  <span className="relative h-7 w-32">
+                    <Image
+                      src={choisi.logo}
+                      alt={choisi.nom}
+                      fill
+                      sizes="128px"
+                      className="object-contain object-right"
+                    />
+                  </span>
+                ) : null}
+              </div>
+            )}
 
-            {canal ? <Simulateur canalImpose={canal} /> : null}
+            {canal && !dossier ? (
+              <Simulateur
+                canalImpose={canal}
+                onContinuer={(d) =>
+                  setDossier({
+                    montant: d.montant,
+                    departCode: d.departCode,
+                    arriveeCode: d.arriveeCode,
+                  })
+                }
+              />
+            ) : null}
+
+            {canal && dossier ? (
+              <ParcoursEnvoi
+                montant={dossier.montant}
+                departCode={dossier.departCode}
+                arriveeCode={dossier.arriveeCode}
+                operateurId={canal}
+                onRetour={() => setDossier(null)}
+              />
+            ) : null}
           </div>
         </div>
       </div>

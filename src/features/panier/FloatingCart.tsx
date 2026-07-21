@@ -1,11 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ArrowRight, ShoppingCart } from "lucide-react";
 import { formatXAF } from "@/lib/format/currency";
-import { nombreArticles, totalPanier, usePanier } from "@/features/panier/store";
+import { nombreArticles, totalPanier, useMonte, usePanier } from "@/features/panier/store";
 import { cn } from "@/lib/utils/cn";
 
 /**
@@ -36,9 +35,7 @@ const ROUTES_MASQUEES = ["/panier", "/checkout", "/commande"];
 export function FloatingCart() {
   const pathname = usePathname();
   const lignes = usePanier((s) => s.lignes);
-  const [monte, setMonte] = useState(false);
-
-  useEffect(() => setMonte(true), []);
+  const monte = useMonte();
 
   const articles = monte ? nombreArticles(lignes) : 0;
   const total = monte ? totalPanier(lignes) : 0;

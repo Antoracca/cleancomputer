@@ -90,6 +90,8 @@ export function ProductCardActions({ produit }: { produit: Produit }) {
           onClick={(e) => {
             stopper(e);
             ajouter({
+              id: produit.slug,
+              type: "produit",
               slug: produit.slug,
               nom: produit.nom,
               prixXaf: produit.prixXaf,

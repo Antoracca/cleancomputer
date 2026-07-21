@@ -17,7 +17,13 @@ export type CategorieSlug =
   | "tablettes"
   | "photo"
   | "gaming"
-  | "logiciels";
+  | "logiciels"
+  | "composants"
+  | "composants-electroniques"
+  | "ecrans"
+  | "stockage"
+  | "cables"
+  | "mobiles";
 
 export type Categorie = {
   readonly slug: CategorieSlug;
@@ -96,6 +102,38 @@ export const CATEGORIES: readonly Categorie[] = [
     slug: "gaming",
     nom: "Gaming",
     description: "Manettes et accessoires de jeu.",
+  },
+  {
+    slug: "composants",
+    nom: "Composants PC",
+    description:
+      "Mémoire, stockage interne, cartes graphiques et alimentations pour monter ou faire évoluer un poste.",
+  },
+  {
+    slug: "composants-electroniques",
+    nom: "Composants électroniques",
+    description:
+      "Pièces de rechange pour téléphone et ordinateur portable : écrans, batteries, connecteurs de charge, nappes, claviers et ventilateurs.",
+  },
+  {
+    slug: "ecrans",
+    nom: "Écrans & moniteurs",
+    description: "Moniteurs bureautiques, création et jeu, du 22 au 34 pouces.",
+  },
+  {
+    slug: "stockage",
+    nom: "Stockage & disques",
+    description: "Disques externes, SSD portables, cartes mémoire et clés USB.",
+  },
+  {
+    slug: "cables",
+    nom: "Câbles & adaptateurs",
+    description: "HDMI, USB-C, réseau, hubs et adaptateurs de tous formats.",
+  },
+  {
+    slug: "mobiles",
+    nom: "Accessoires mobiles",
+    description: "Coques, protections d'écran, supports et charge sans fil.",
   },
 ] as const;
 

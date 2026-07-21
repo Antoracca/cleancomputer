@@ -5,7 +5,12 @@ import { Container } from "@/components/ui/Container";
 import { PageHeader } from "@/components/shared/PageHeader";
 import { EyebrowLabel } from "@/components/shared/EyebrowLabel";
 import { ChoixCanal } from "@/features/transfert/ChoixCanal";
-import { OPERATEURS, TAUX_EUR_MAD, TAUX_MAD_XAF } from "@/lib/data/transfert";
+import {
+  OPERATEURS,
+  TAUX_EUR_MAD,
+  TAUX_MAD_XAF,
+  type OperateurId,
+} from "@/lib/data/transfert";
 import { COMPANY, PHONE_HREF } from "@/lib/config/company";
 
 export const metadata: Metadata = {
@@ -26,7 +31,19 @@ export const metadata: Metadata = {
  * Money restreint au Maroc, envoi seulement) sont dites là où elles comptent,
  * c'est-à-dire dans le parcours lui-même et en pied de page.
  */
-export default function TransfertPage() {
+export default async function TransfertPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ service?: string }>;
+}) {
+  // `?service=moneygram` ouvre directement le parcours de cet opérateur.
+  // Depuis le menu, cliquer sur « MoneyGram » puis devoir rechoisir MoneyGram
+  // est une étape pour rien : le choix est déjà fait.
+  const { service } = await searchParams;
+  const canalInitial = OPERATEURS.some((o) => o.id === service)
+    ? (service as OperateurId)
+    : undefined;
+
   return (
     <>
       <PageHeader
@@ -49,7 +66,7 @@ export default function TransfertPage() {
           </h2>
         </div>
 
-        <ChoixCanal />
+        <ChoixCanal canalInitial={canalInitial} />
       </Container>
 
       {/* ═══════════ SUIVI ═══════════ */}

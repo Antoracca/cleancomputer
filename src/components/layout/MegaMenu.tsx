@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { PILLARS } from "@/lib/config/navigation";
 import { EyebrowLabel } from "@/components/shared/EyebrowLabel";
+import { MarqueLogo } from "@/components/shared/MarqueLogo";
 import { cn } from "@/lib/utils/cn";
 
 /**
@@ -50,7 +51,22 @@ export function MegaMenu({
                   <p className="max-w-sm text-title text-ink">{pillar.intro}</p>
                 </div>
 
-                <ul className="grid grid-cols-2 gap-x-10 gap-y-1">
+                {/* Abonnements porte 18 entrées : la liste dépassait la hauteur
+                    du panneau et les dernières marques étaient inatteignables.
+                    Hauteur plafonnée à la fenêtre, défilement sans barre
+                    visible, et un fondu en bas qui signale qu'il reste du
+                    contenu. Sans ce fondu, un défilement invisible ne se
+                    devine pas. */}
+                <ul
+                  className={cn(
+                    "grid grid-cols-2 gap-x-10 gap-y-1",
+                    // Seules les listes réellement longues sont plafonnées.
+                    // Appliqué partout, le fondu rognerait la dernière ligne
+                    // de Design ou de Transfert, qui tiennent sans déborder.
+                    pillar.links.length > 10 &&
+                      "max-h-[min(26rem,50vh)] overflow-y-auto scroll-discret [mask-image:linear-gradient(to_bottom,black_calc(100%-2.5rem),transparent)]",
+                  )}
+                >
                   {pillar.links.map((link) => (
                     <li key={link.href + link.label}>
                       <Link
@@ -60,7 +76,11 @@ export function MegaMenu({
                       >
                         <span className="flex items-center gap-2">
                           {link.logo ? (
-                            <img src={link.logo} alt="" className="size-5 opacity-70 transition-opacity group-hover/link:opacity-100" />
+                            <MarqueLogo
+                              src={link.logo}
+                              nom={link.label}
+                              className="size-5 opacity-70 transition-opacity group-hover/link:opacity-100"
+                            />
                           ) : null}
                           {link.label}
                           {link.note ? (
@@ -80,22 +100,24 @@ export function MegaMenu({
                 </ul>
               </div>
 
-              {/* Aperçus visuels — cercles, jamais de vignettes rectangulaires */}
+              {/* Aperçus visuels — cercles, jamais de vignettes rectangulaires.
+                  Deux colonnes fixes : à quatre aperçus, la rangée unique
+                  poussait la colonne de liens hors du panneau. */}
               {pillar.previews.length > 0 ? (
-                <div className="flex gap-5 border-l border-ghost pl-12">
+                <div className="grid grid-cols-2 gap-x-5 gap-y-7 border-l border-ghost pl-12">
                   {pillar.previews.map((preview) => (
                     <Link
                       key={preview.href + preview.label}
                       href={preview.href}
                       onClick={onClose}
-                      className="group/preview flex w-[132px] flex-col items-center gap-4 text-center"
+                      className="group/preview flex w-[124px] flex-col items-center gap-3.5 text-center"
                     >
-                      <div className="relative size-[132px] overflow-hidden rounded-full bg-ghost">
+                      <div className="relative size-[124px] overflow-hidden rounded-full bg-ghost">
                         <Image
                           src={preview.image}
                           alt=""
                           fill
-                          sizes="132px"
+                          sizes="124px"
                           className="object-cover transition-transform duration-500 ease-out-soft group-hover/preview:scale-105"
                         />
                       </div>

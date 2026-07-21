@@ -5,8 +5,10 @@ import Link from "next/link";
 import { Minus, Plus, ShoppingBag, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { PriceTag } from "@/components/shared/PriceTag";
+import { MarqueLogo } from "@/components/shared/MarqueLogo";
 import { formatXAF } from "@/lib/format/currency";
 import { totalPanier, usePanier } from "@/features/panier/store";
+import { cn } from "@/lib/utils/cn";
 
 /**
  * VUE PANIER
@@ -43,35 +45,69 @@ export function CartView() {
   return (
     <div className="grid gap-10 lg:grid-cols-[1fr_320px] lg:gap-16">
       <ul className="flex flex-col">
-        {lignes.map((ligne) => (
+        {lignes.map((ligne) => {
+          const estAbonnement = ligne.type === "abonnement";
+          // Deux destinations, deux catalogues. Un abonnement n'a pas de fiche
+          // produit et pointer vers /electronique/p/netflix donnerait une 404.
+          const href = estAbonnement
+            ? `/abonnements/${ligne.slug}`
+            : `/electronique/p/${ligne.slug}`;
+
+          return (
           <li
-            key={ligne.slug}
+            key={ligne.id}
             className="flex gap-5 border-b border-mist/50 py-6 first:pt-0"
           >
             <Link
-              href={`/electronique/p/${ligne.slug}`}
-              className="relative size-24 shrink-0 overflow-hidden rounded-action bg-ghost"
+              href={href}
+              className={cn(
+                "relative size-24 shrink-0 overflow-hidden rounded-action",
+                // Les logos d'abonnement sont des SVG transparents : sur fond
+                // gris ils se lisent mal, et un recadrage les amputerait.
+                estAbonnement ? "grid place-items-center bg-white p-4" : "bg-ghost",
+              )}
             >
-              <Image
-                src={ligne.image}
-                alt={ligne.nom}
-                fill
-                sizes="96px"
-                className="object-cover"
-              />
+              {estAbonnement ? (
+                <MarqueLogo
+                  src={ligne.image}
+                  nom={ligne.nom}
+                  className="max-h-full max-w-full object-contain"
+                />
+              ) : (
+                <Image
+                  src={ligne.image}
+                  alt={ligne.nom}
+                  fill
+                  sizes="96px"
+                  className="object-cover"
+                />
+              )}
             </Link>
 
             <div className="flex flex-1 flex-col gap-2">
               <div className="flex items-start justify-between gap-4">
-                <Link
-                  href={`/electronique/p/${ligne.slug}`}
-                  className="text-[1.0625rem] font-medium tracking-[-0.02em] text-ink transition-colors hover:text-brand"
-                >
-                  {ligne.nom}
-                </Link>
+                <span className="flex flex-col gap-1">
+                  <Link
+                    href={href}
+                    className="text-[1.0625rem] font-medium tracking-[-0.02em] text-ink transition-colors hover:text-brand"
+                  >
+                    {ligne.nom}
+                  </Link>
+                  {estAbonnement ? (
+                    <span className="text-[0.875rem] text-slate">
+                      {ligne.formuleNom}
+                      {ligne.duree ? ` · ${ligne.duree}` : ""}
+                    </span>
+                  ) : null}
+                  {estAbonnement && ligne.compteIdentifiant ? (
+                    <span className="text-[0.8125rem] text-slate">
+                      Compte : {ligne.compteIdentifiant}
+                    </span>
+                  ) : null}
+                </span>
                 <button
                   type="button"
-                  onClick={() => retirer(ligne.slug)}
+                  onClick={() => retirer(ligne.id)}
                   aria-label={`Retirer ${ligne.nom} du panier`}
                   className="grid size-9 shrink-0 place-items-center rounded-full text-slate transition-colors hover:bg-ghost hover:text-danger"
                 >
@@ -80,33 +116,42 @@ export function CartView() {
               </div>
 
               <div className="mt-auto flex flex-wrap items-center justify-between gap-3">
-                <div className="flex items-center rounded-pill border border-mist bg-white">
-                  <button
-                    type="button"
-                    onClick={() => changerQuantite(ligne.slug, ligne.quantite - 1)}
-                    aria-label="Diminuer"
-                    className="grid size-9 place-items-center rounded-full text-ink transition-colors hover:bg-ghost"
-                  >
-                    <Minus size={14} />
-                  </button>
-                  <span className="min-w-7 text-center text-[0.9375rem] font-medium tabular-nums">
-                    {ligne.quantite}
+                {estAbonnement ? (
+                  // Pas de sélecteur de quantité : deux fois la même formule
+                  // sur le même compte n'a pas de sens.
+                  <span className="rounded-pill bg-frost px-3.5 py-1.5 text-[0.8125rem] text-graphite">
+                    Activation unique
                   </span>
-                  <button
-                    type="button"
-                    onClick={() => changerQuantite(ligne.slug, ligne.quantite + 1)}
-                    aria-label="Augmenter"
-                    className="grid size-9 place-items-center rounded-full text-ink transition-colors hover:bg-ghost"
-                  >
-                    <Plus size={14} />
-                  </button>
-                </div>
+                ) : (
+                  <div className="flex items-center rounded-pill border border-mist bg-white">
+                    <button
+                      type="button"
+                      onClick={() => changerQuantite(ligne.id, ligne.quantite - 1)}
+                      aria-label="Diminuer"
+                      className="grid size-9 place-items-center rounded-full text-ink transition-colors hover:bg-ghost"
+                    >
+                      <Minus size={14} />
+                    </button>
+                    <span className="min-w-7 text-center text-[0.9375rem] font-medium tabular-nums">
+                      {ligne.quantite}
+                    </span>
+                    <button
+                      type="button"
+                      onClick={() => changerQuantite(ligne.id, ligne.quantite + 1)}
+                      aria-label="Augmenter"
+                      className="grid size-9 place-items-center rounded-full text-ink transition-colors hover:bg-ghost"
+                    >
+                      <Plus size={14} />
+                    </button>
+                  </div>
+                )}
 
                 <PriceTag amount={ligne.prixXaf * ligne.quantite} size="sm" />
               </div>
             </div>
           </li>
-        ))}
+          );
+        })}
       </ul>
 
       {/* Récapitulatif collant */}

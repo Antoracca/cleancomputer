@@ -1,10 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Check, CreditCard, Eye, Minus, Plus, ShoppingCart } from "lucide-react";
 import { Button } from "@/components/ui/Button";
-import { usePanier } from "@/features/panier/store";
+import { useMonte, usePanier } from "@/features/panier/store";
 import { useFavoris } from "@/features/favoris/store";
 import { cn } from "@/lib/utils/cn";
 
@@ -40,15 +40,14 @@ export function AddToCart({
 
   const [quantite, setQuantite] = useState(1);
   const [ajoute, setAjoute] = useState(false);
-  const [monte, setMonte] = useState(false);
-
-  useEffect(() => setMonte(true), []);
+  const monte = useMonte();
 
   const enRupture = stock === 0;
   const max = Math.min(stock, 99);
   const estFavori = monte && favoris.includes(slug);
 
-  const ligne = { slug, nom, prixXaf, image };
+  // Pour un produit, l'identité de ligne reste le slug : c'est déjà unique.
+  const ligne = { id: slug, type: "produit" as const, slug, nom, prixXaf, image };
 
   return (
     <div className="flex flex-col gap-4">

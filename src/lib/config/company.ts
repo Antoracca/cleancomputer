@@ -30,6 +30,14 @@ export const COMPANY = {
   phone: "+236 72 28 07 27",
   phoneRaw: "+23672280727",
 
+  /**
+   * Position exacte de la boutique, relevée par le gérant.
+   * Sert à la carte de la page d'accueil et à l'itinéraire. Un seul endroit
+   * pour la corriger si la boutique déménage.
+   */
+  latitude: 4.360924,
+  longitude: 18.583275,
+
   /* --- Localisation --- */
   locale: "fr-FR",
   currency: "XAF",

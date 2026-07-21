@@ -38,6 +38,12 @@ const button = cva(
         /* Lien discret */
         ghost:
           "bg-transparent text-ink border-0 rounded-action hover:bg-ghost",
+        /* CTA posé SUR un panneau encre — l'inverse exact du primaire */
+        onDark:
+          "bg-frost text-ink border-[1.5px] border-frost rounded-action hover:bg-white hover:border-white",
+        /* Secondaire sur panneau encre — cerné, sans remplissage */
+        ghostOnDark:
+          "bg-transparent text-white border-[1.5px] border-white/25 rounded-action font-[450] hover:border-white/60",
       },
       size: {
         sm: "px-5 text-[0.9375rem]",

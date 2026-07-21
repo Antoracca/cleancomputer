@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ChevronDown } from "lucide-react";
 import { PILLARS } from "@/lib/config/navigation";
 import { EyebrowLabel } from "@/components/shared/EyebrowLabel";
+import { MarqueLogo } from "@/components/shared/MarqueLogo";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils/cn";
 
@@ -87,7 +88,11 @@ export function MobileMenu({
                           className="flex items-center gap-3 py-3 pl-1 text-body text-graphite"
                         >
                           {link.logo ? (
-                            <img src={link.logo} alt="" className="size-5 opacity-70" />
+                            <MarqueLogo
+                              src={link.logo}
+                              nom={link.label}
+                              className="size-5 opacity-70"
+                            />
                           ) : null}
                           <span>{link.label}</span>
                           {link.note ? (

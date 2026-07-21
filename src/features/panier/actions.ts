@@ -2,6 +2,7 @@
 
 import { createAdminClient, createClient } from "@/lib/supabase/server";
 import { validatePhone, validateRequired } from "@/features/auth/validation";
+import { getAbonnement } from "@/lib/data/abonnements";
 
 /**
  * ACTIONS SERVEUR — COMMANDE
@@ -18,7 +19,15 @@ import { validatePhone, validateRequired } from "@/features/auth/validation";
 
 const LIVRAISON_BANGUI_XAF = 2000;
 
-export type ArticleCommande = { slug: string; quantite: number };
+export type ArticleCommande =
+  | { type: "produit"; slug: string; quantite: number }
+  | {
+      type: "abonnement";
+      slug: string;
+      formuleNom: string;
+      compteIdentifiant: string;
+      quantite: number;
+    };
 
 export type ResultatCommande =
   | { ok: true; reference: string }
@@ -51,52 +60,120 @@ export async function creerCommande(input: {
   }
 
   const quantites = new Map<string, number>();
+  const abonnementsDemandes: {
+    slug: string;
+    formuleNom: string;
+    compteIdentifiant: string;
+  }[] = [];
+
   for (const article of input.articles) {
+    if (typeof article.slug !== "string" || article.slug.length > 100) {
+      return { ok: false, erreur: "Article invalide." };
+    }
+
+    if (article.type === "abonnement") {
+      const compte = (article.compteIdentifiant ?? "").trim();
+      if (compte.length < 3 || compte.length > 200) {
+        return {
+          ok: false,
+          erreur: "Indiquez le compte à activer pour chaque abonnement.",
+        };
+      }
+      if (typeof article.formuleNom !== "string" || !article.formuleNom) {
+        return { ok: false, erreur: "Formule d'abonnement invalide." };
+      }
+      abonnementsDemandes.push({
+        slug: article.slug,
+        formuleNom: article.formuleNom,
+        compteIdentifiant: compte,
+      });
+      continue;
+    }
+
     const quantite = Math.floor(Number(article.quantite));
     if (!Number.isFinite(quantite) || quantite < 1 || quantite > 99) {
       return { ok: false, erreur: "Quantité invalide." };
     }
-    if (typeof article.slug !== "string" || article.slug.length > 100) {
-      return { ok: false, erreur: "Article invalide." };
-    }
     quantites.set(article.slug, (quantites.get(article.slug) ?? 0) + quantite);
   }
 
-  /* ------------------------------------------- relecture des prix en base */
-  const admin = await createAdminClient();
-  const { data: produits, error: errProduits } = await admin
-    .from("produits")
-    .select("slug, nom, prix_xaf, stock, actif")
-    .in("slug", [...quantites.keys()]);
-
-  if (errProduits || !produits) {
-    return { ok: false, erreur: "Impossible de vérifier les articles. Réessayez." };
-  }
-
   const lignes: {
-    produit_slug: string;
+    produit_slug: string | null;
+    abonnement_slug: string | null;
+    formule_nom: string | null;
+    compte_identifiant: string | null;
     libelle_fige: string;
     prix_unitaire_xaf: number;
     quantite: number;
   }[] = [];
 
-  for (const [slug, quantite] of quantites) {
-    const produit = produits.find((p) => p.slug === slug);
-    if (!produit || !produit.actif) {
-      return { ok: false, erreur: "Un article du panier n'est plus disponible." };
-    }
-    if (produit.stock < quantite) {
+  /* ------------------------------------------- relecture des prix en base */
+  const admin = await createAdminClient();
+
+  if (quantites.size > 0) {
+    const { data: produits, error: errProduits } = await admin
+      .from("produits")
+      .select("slug, nom, prix_xaf, stock, actif")
+      .in("slug", [...quantites.keys()]);
+
+    if (errProduits || !produits) {
       return {
         ok: false,
-        erreur: `Stock insuffisant pour « ${produit.nom} » (${produit.stock} restant${produit.stock > 1 ? "s" : ""}).`,
+        erreur: "Impossible de vérifier les articles. Réessayez.",
+      };
+    }
+
+    for (const [slug, quantite] of quantites) {
+      const produit = produits.find((p) => p.slug === slug);
+      if (!produit || !produit.actif) {
+        return { ok: false, erreur: "Un article du panier n'est plus disponible." };
+      }
+      if (produit.stock < quantite) {
+        return {
+          ok: false,
+          erreur: `Stock insuffisant pour « ${produit.nom} » (${produit.stock} restant${produit.stock > 1 ? "s" : ""}).`,
+        };
+      }
+      lignes.push({
+        produit_slug: slug,
+        abonnement_slug: null,
+        formule_nom: null,
+        compte_identifiant: null,
+        libelle_fige: produit.nom,
+        prix_unitaire_xaf: produit.prix_xaf,
+        quantite,
+      });
+    }
+  }
+
+  /* ---------------------------- relecture des tarifs d'abonnement au catalogue
+     Les abonnements ne sont pas en base : leur source de vérité est le module
+     statique. Le principe reste identique, le prix ne vient jamais du client. */
+  for (const demande of abonnementsDemandes) {
+    const abonnement = getAbonnement(demande.slug);
+    if (!abonnement) {
+      return { ok: false, erreur: "Un abonnement du panier n'existe plus." };
+    }
+    const formule = abonnement.formules.find((f) => f.nom === demande.formuleNom);
+    if (!formule) {
+      return {
+        ok: false,
+        erreur: `La formule « ${demande.formuleNom} » n'est plus proposée pour ${abonnement.nom}.`,
       };
     }
     lignes.push({
-      produit_slug: slug,
-      libelle_fige: produit.nom,
-      prix_unitaire_xaf: produit.prix_xaf,
-      quantite,
+      produit_slug: null,
+      abonnement_slug: abonnement.slug,
+      formule_nom: formule.nom,
+      compte_identifiant: demande.compteIdentifiant,
+      libelle_fige: `${abonnement.nom} · ${formule.nom}`,
+      prix_unitaire_xaf: formule.prixXaf,
+      quantite: 1,
     });
+  }
+
+  if (lignes.length === 0) {
+    return { ok: false, erreur: "Le panier est vide." };
   }
 
   const sousTotal = lignes.reduce(

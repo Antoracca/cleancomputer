@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, ArrowUpRight, Phone } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { EyebrowLabel } from "@/components/shared/EyebrowLabel";
@@ -10,9 +10,10 @@ import { OrbitArc } from "@/components/motion/OrbitArc";
 import { ProductCard } from "@/components/shared/ProductCard";
 import { LocalVideo } from "@/components/shared/LocalVideo";
 import { OrdinateurCard } from "@/features/catalogue/OrdinateurCard";
+import { VitrineVehicules } from "@/features/vehicules/VitrineVehicules";
+import { CarteBoutique } from "@/features/contact/CarteBoutique";
 import { chargerProduitsMisEnAvant } from "@/lib/data/catalogue-db";
 import { ORDINATEURS, getOrdinateursVitrine } from "@/lib/data/ordinateurs";
-import { COMPANY, PHONE_HREF } from "@/lib/config/company";
 
 export const revalidate = 60;
 
@@ -470,47 +471,10 @@ export default async function HomePage() {
         </Container>
       </section>
 
-      {/* ═══════════ 6. VÉHICULES — bande pleine largeur ═══════════ */}
-      <section className="relative mt-28 md:mt-40">
-        <div className="relative min-h-[420px] overflow-hidden md:min-h-[520px]">
-          <Image
-            src="/media/vehicules/landcruiser-prado-avant.jpg"
-            alt="Toyota Land Cruiser Prado importé, vue avant"
-            fill
-            sizes="100vw"
-            className="object-cover"
-          />
-          <div
-            aria-hidden
-            className="absolute inset-0 bg-gradient-to-r from-ink/92 via-ink/60 to-ink/15"
-          />
-
-          <Container className="relative flex min-h-[420px] items-center py-16 md:min-h-[520px]">
-            <div className="flex max-w-lg flex-col gap-6">
-              <EyebrowLabel tone="frost">
-                Véhicules & motos
-              </EyebrowLabel>
-              <h2 className="text-[clamp(1.75rem,3.5vw,2.75rem)] leading-[1.1] font-medium tracking-[-0.025em] text-white">
-                Le 4×4 que vous cherchez, importé à votre nom.
-              </h2>
-              <p className="text-[1.0625rem] leading-relaxed text-white/75">
-                Toyota, Mercedes, marques chinoises. Achat sur catalogue,
-                expédition groupée, dédouanement pris en charge. Vous connaissez
-                le prix rendu à Bangui avant que le véhicule ne parte.
-              </p>
-              <div>
-                <Button
-                  asChild
-                  size="lg"
-                  className="border-white bg-white text-ink hover:border-white/80 hover:bg-white/90"
-                >
-                  <Link href="/vehicules">Voir les véhicules</Link>
-                </Button>
-              </div>
-            </div>
-          </Container>
-        </div>
-      </section>
+      {/* ═══════════ 6. VÉHICULES — vitrine façon spot télévisé ═══════════ */}
+      <div className="mt-28 md:mt-40">
+        <VitrineVehicules />
+      </div>
 
       {/* ═══════════ 7. DEVIS — encre + arcs ═══════════ */}
       <section className="mt-28 md:mt-40">
@@ -621,25 +585,7 @@ export default async function HomePage() {
       {/* ═══════════ 9. VENEZ NOUS VOIR ═══════════ */}
       <section className="mt-28 md:mt-36">
         <Container>
-          <div className="flex flex-col gap-8 rounded-frame border border-mist/60 bg-white px-8 py-14 md:flex-row md:items-center md:justify-between md:px-14">
-            <div className="flex flex-col gap-3">
-              <h2 className="text-[clamp(1.5rem,3vw,2rem)] leading-[1.2] font-medium tracking-[-0.025em] text-ink">
-                Passez nous voir, on est ouvert.
-              </h2>
-              <p className="max-w-md text-[1.0625rem] leading-relaxed text-graphite">
-                {COMPANY.address}, {COMPANY.city}. Vous préférez appeler ?
-                On décroche.
-              </p>
-            </div>
-
-            <a
-              href={PHONE_HREF}
-              className="inline-flex min-h-14 shrink-0 items-center justify-center gap-3 rounded-action border-[1.5px] border-ink bg-ink px-8 text-[1.125rem] font-medium tracking-[-0.02em] text-frost transition-colors hover:bg-charcoal"
-            >
-              <Phone size={19} aria-hidden />
-              {COMPANY.phone}
-            </a>
-          </div>
+          <CarteBoutique />
         </Container>
       </section>
     </>

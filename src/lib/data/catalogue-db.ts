@@ -72,6 +72,16 @@ export async function chargerProduits(
     const { data, error } = await query;
     if (error || !data) throw error ?? new Error("réponse vide");
 
+    // La base peut répondre correctement AVEC zéro ligne : c'est le cas de
+    // toute catégorie pas encore peuplée côté Supabase. Sans ce garde-fou, la
+    // page affichait « Rien dans cette catégorie » alors que le catalogue
+    // statique contenait bien les produits. Le repli ne se limite donc pas aux
+    // pannes réseau, il couvre aussi la base incomplète pendant la migration.
+    if (data.length === 0) {
+      const statiques = getProduitsStatiques(categorie);
+      if (statiques.length > 0) return statiques;
+    }
+
     return (data as ProduitRow[]).map(versProduit);
   } catch {
     return getProduitsStatiques(categorie);

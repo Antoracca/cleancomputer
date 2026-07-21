@@ -74,7 +74,20 @@ export function CheckoutForm() {
     setPending(true);
 
     const resultat = await creerCommande({
-      articles: lignes.map((l) => ({ slug: l.slug, quantite: l.quantite })),
+      // Le serveur retrouve chaque prix lui-même, dans la table produits ou
+      // dans le catalogue d'abonnements selon le type. On ne lui envoie que de
+      // quoi identifier la ligne.
+      articles: lignes.map((l) =>
+        l.type === "abonnement"
+          ? {
+              type: "abonnement" as const,
+              slug: l.slug,
+              formuleNom: l.formuleNom ?? "",
+              compteIdentifiant: l.compteIdentifiant ?? "",
+              quantite: 1,
+            }
+          : { type: "produit" as const, slug: l.slug, quantite: l.quantite },
+      ),
       nom: values.nom,
       telephone: values.telephone,
       mode,
@@ -183,11 +196,13 @@ export function CheckoutForm() {
           <ul className="flex flex-col gap-2 border-b border-white/15 pb-5">
             {lignes.map((l) => (
               <li
-                key={l.slug}
+                key={l.id}
                 className="flex justify-between gap-3 text-[0.875rem]"
               >
                 <span className="text-white/70">
-                  {l.quantite} × {l.nom}
+                  {l.type === "abonnement"
+                    ? `${l.nom} · ${l.formuleNom}`
+                    : `${l.quantite} × ${l.nom}`}
                 </span>
                 <span className="shrink-0 tabular-nums">
                   {formatXAF(l.prixXaf * l.quantite)}

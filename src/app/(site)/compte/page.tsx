@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { Package, FileText, Send } from "lucide-react";
+import { Package, Send } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { PageHeader } from "@/components/shared/PageHeader";
 import { EyebrowLabel } from "@/components/shared/EyebrowLabel";
 import { LogoutButton } from "@/features/auth/LogoutButton";
+import { MesDevis } from "@/features/devis/MesDevis";
 import { createClient } from "@/lib/supabase/server";
 
 export const metadata: Metadata = { title: "Mon compte" };
@@ -21,7 +22,12 @@ export const metadata: Metadata = { title: "Mon compte" };
  * Un administrateur est renvoyé vers son panel : c'est la « redirection
  * automatique vers le panel administrateur » prévue au cahier des charges.
  */
-export default async function ComptePage() {
+export default async function ComptePage({
+  searchParams,
+}: {
+  searchParams: Promise<{ onglet?: string }>;
+}) {
+  const { onglet = "devis" } = await searchParams;
   const supabase = await createClient();
 
   const {
@@ -49,20 +55,17 @@ export default async function ComptePage() {
       />
 
       <Container className="pb-32">
-        <div className="grid gap-5 md:grid-cols-3">
+        <div className="mb-12">
+          <MesDevis onglet={onglet} />
+        </div>
+
+        <div className="grid gap-5 md:grid-cols-2">
           <SectionCard
             icone={<Package size={20} strokeWidth={1.75} aria-hidden />}
             titre="Commandes"
             vide="Aucune commande pour le moment."
             href="/electronique"
             lien="Parcourir la boutique"
-          />
-          <SectionCard
-            icone={<FileText size={20} strokeWidth={1.75} aria-hidden />}
-            titre="Devis"
-            vide="Aucun devis enregistré."
-            href="/devis"
-            lien="Chiffrer un projet"
           />
           <SectionCard
             icone={<Send size={20} strokeWidth={1.75} aria-hidden />}

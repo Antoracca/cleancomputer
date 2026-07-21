@@ -210,6 +210,133 @@
   animation: cc-pulse 1.8s var(--ease-in-out-soft) infinite;
 }
 
+/* Ken Burns : dérive lente et continue sur l'image active.
+   C'est ce qui donne le grain « spot télévisé » plutôt que diaporama. Le
+   mouvement dure plus longtemps que le plan lui-même, donc il ne boucle
+   jamais visiblement et ne revient jamais à son point de départ sous les yeux
+   du spectateur. */
+@keyframes cc-derive {
+  from {
+    transform: scale(1.04) translate3d(0, 0, 0);
+  }
+  to {
+    transform: scale(1.13) translate3d(-1.5%, -1%, 0);
+  }
+}
+
+@utility animate-derive {
+  animation: cc-derive 14s var(--ease-in-out-soft) both;
+}
+
+/* Montée douce du texte, calée sur le fondu de l'image. */
+@keyframes cc-monte {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 14px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@utility animate-monte {
+  animation: cc-monte 0.9s var(--ease-out-soft) both;
+}
+
+/* Défilement sans barre visible.
+   Pour les panneaux qui débordent (mega-menu Abonnements et ses 18 entrées)
+   sans qu'une barre grise vienne casser la surface blanche.
+
+   La barre disparaît mais le défilement reste entier : molette, tactile,
+   flèches et Page Haut/Bas. `scrollbar-width: none` couvre Firefox,
+   `::-webkit-scrollbar` couvre Chrome et Safari. */
+@utility scroll-discret {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* ============================================================================
+   IMPRESSION DU DEVIS
+
+   Le document est déjà découpé en pages A4 exactes dans le DOM. L'impression
+   n'a donc rien à recalculer : elle doit seulement effacer l'interface autour
+   et laisser les pages sortir telles quelles.
+
+   `size: A4; margin: 0` est essentiel : les marges du document sont déjà dans
+   le padding de chaque page. Laisser l'imprimante ajouter les siennes
+   décalerait tout et ferait déborder sur une page de plus.
+   ========================================================================= */
+
+@media print {
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  html,
+  body {
+    background: #fff !important;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Tout ce qui n'est pas le document disparaît : navigation, panneau de
+     saisie, panier flottant, boutons.
+
+     ON MASQUE PAR `visibility`, PAS PAR `display`.
+
+     La première version ciblait `body > *:not(.impression-racine)`. Le
+     document n'est JAMAIS un enfant direct de `body` : il est imbriqué dans
+     le conteneur, lui-même dans le `main`. La règle masquait donc ses propres
+     ancêtres et l'impression sortait une page entièrement blanche.
+
+     `visibility` se propage aux descendants mais peut être rétablie sur eux,
+     ce que `display: none` ne permet pas. On éteint donc tout, puis on
+     rallume la seule branche du document, quelle que soit sa profondeur. */
+  body * {
+    visibility: hidden;
+  }
+
+  .impression-racine,
+  .impression-racine * {
+    visibility: visible;
+  }
+
+  /* `visibility: hidden` conserve la place occupée : sans ce repositionnement,
+     le document serait imprimé après plusieurs pages vides correspondant à la
+     navigation et au panneau de saisie. */
+  .impression-racine {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  /* Le zoom d'aperçu ne doit pas suivre à l'impression : les pages sont déjà
+     au format A4 exact. */
+  .impression-racine > * {
+    zoom: 1 !important;
+  }
+
+  .impression-cache,
+  .impression-cache * {
+    display: none !important;
+  }
+
+  /* Les aplats de couleur du document (filets, en-têtes de tableau) doivent
+     sortir. Sans cette règle, la plupart des navigateurs les suppriment pour
+     économiser l'encre et le document perd sa structure. */
+  .impression-racine {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+
 /* ============================================================================
    ACCESSIBILITÉ — MOUVEMENT RÉDUIT
    Respecté strictement : tout s'arrête, rien ne casse.

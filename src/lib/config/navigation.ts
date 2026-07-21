@@ -37,19 +37,35 @@ export const PILLARS: readonly NavPillar[] = [
     href: "/electronique",
     intro: "Du matériel testé, en stock à Bangui.",
     links: [
-      { label: "Audio", href: "/electronique/audio" },
-      { label: "Charge & batteries", href: "/electronique/charge" },
+      { label: "Ordinateurs", href: "/electronique/ordinateurs" },
+      { label: "Téléphones", href: "/electronique/telephones" },
+      { label: "Composants PC", href: "/electronique/composants" },
+      { label: "Composants électroniques", href: "/electronique/composants-electroniques" },
+      { label: "Écrans & moniteurs", href: "/electronique/ecrans" },
+      { label: "Stockage & disques", href: "/electronique/stockage" },
       { label: "Réseau & Wi-Fi", href: "/electronique/reseau" },
+      { label: "Audio", href: "/electronique/audio" },
+      { label: "Gaming", href: "/electronique/gaming" },
+      { label: "Charge & batteries", href: "/electronique/charge" },
+      { label: "Câbles & adaptateurs", href: "/electronique/cables" },
+      { label: "Accessoires mobiles", href: "/electronique/mobiles" },
       { label: "Périphériques", href: "/electronique/peripheriques" },
       { label: "Tablettes", href: "/electronique/tablettes" },
-      { label: "Gaming", href: "/electronique/gaming" },
-      { label: "Composants PC", href: "/electronique/composants" },
-      { label: "Écrans & Moniteurs", href: "/electronique/ecrans" },
-      { label: "Stockage & Disques", href: "/electronique/stockage" },
-      { label: "Câbles & Adaptateurs", href: "/electronique/cables" },
-      { label: "Accessoires Mobiles", href: "/electronique/mobiles" },
+      { label: "Téléviseurs", href: "/electronique/television" },
+      { label: "Photo & vidéo", href: "/electronique/photo" },
+      { label: "Logiciels", href: "/electronique/logiciels" },
     ],
     previews: [
+      {
+        image: "/media/portraits/ordinateur-hp-argent.jpg",
+        label: "Ordinateurs",
+        href: "/electronique/ordinateurs",
+      },
+      {
+        image: "/media/portraits/telephone-galaxy-s25-ultra.jpg",
+        label: "Téléphones",
+        href: "/electronique/telephones",
+      },
       {
         image: "/media/portraits/reseau-starlink-kit-deballe.jpg",
         label: "Kit Starlink",
@@ -72,23 +88,56 @@ export const PILLARS: readonly NavPillar[] = [
       { label: "Infrastructure", href: "/services-informatiques/infrastructure" },
       { label: "Développement", href: "/services-informatiques/developpement" },
       { label: "Identité & communication", href: "/services-informatiques/identite" },
-      { label: "Installation Windows", href: "/services-informatiques/systemes" },
-      { label: "Installation Starlink", href: "/services-informatiques/infrastructure" },
-      { label: "Récupération de données", href: "/services-informatiques/systemes" },
-      { label: "Maintenance sous contrat", href: "/services-informatiques/infrastructure" },
-      { label: "Couverture Wi-Fi pro", href: "/services-informatiques/infrastructure" },
+      {
+        label: "Installation Windows",
+        href: "/services-informatiques/systemes/installation-windows",
+      },
+      {
+        label: "Récupération de données",
+        href: "/services-informatiques/systemes/recuperation-donnees",
+      },
+      {
+        label: "Installation Starlink",
+        href: "/services-informatiques/infrastructure/installation-starlink",
+      },
+      {
+        label: "Couverture Wi-Fi pro",
+        href: "/services-informatiques/infrastructure/reseau-wifi",
+      },
+      {
+        label: "Maintenance sous contrat",
+        href: "/services-informatiques/infrastructure/maintenance-contrat",
+      },
+      {
+        label: "Site vitrine",
+        href: "/services-informatiques/developpement/site-vitrine",
+      },
+      {
+        label: "Site e-commerce",
+        href: "/services-informatiques/developpement/site-ecommerce",
+      },
       { label: "Obtenir un devis", href: "/devis", note: "Prix immédiat" },
     ],
     previews: [
       {
         image: "/media/portraits/logiciel-windows-11-pro.jpg",
-        label: "Licences & systèmes",
+        label: "Systèmes & postes",
         href: "/services-informatiques/systemes",
+      },
+      {
+        image: "/media/portraits/reseau-starlink-stock.jpg",
+        label: "Installation Starlink",
+        href: "/services-informatiques/infrastructure/installation-starlink",
+      },
+      {
+        image: "/media/portraits/reseau-wavlink-ax3000.jpg",
+        label: "Couverture Wi-Fi",
+        href: "/services-informatiques/infrastructure/reseau-wifi",
       },
       {
         image: "/media/portraits/logiciel-office-pro-plus-2024.jpg",
         label: "Suite bureautique",
-        href: "/services-informatiques/systemes",
+        href: "/services-informatiques/systemes/suite-office",
       },
     ],
   },
@@ -99,18 +148,43 @@ export const PILLARS: readonly NavPillar[] = [
     intro: "Une identité qui tient debout partout.",
     links: [
       { label: "Notre approche", href: "/design-branding" },
-      { label: "Création de logo", href: "/services-informatiques/identite" },
-      { label: "Charte graphique", href: "/services-informatiques/identite" },
-      { label: "Refonte d'identité", href: "/services-informatiques/identite" },
-      { label: "Flyers & affiches", href: "/services-informatiques/identite" },
-      { label: "Cartes de visite", href: "/services-informatiques/identite" },
+      { label: "Création de logo", href: "/services-informatiques/identite/logo" },
+      {
+        label: "Charte graphique",
+        href: "/services-informatiques/identite/charte-graphique",
+      },
+      {
+        label: "Refonte d'identité",
+        href: "/services-informatiques/identite/refonte-identite",
+      },
+      {
+        label: "Flyers & affiches",
+        href: "/services-informatiques/identite/flyers-affiches",
+      },
+      {
+        label: "Cartes de visite",
+        href: "/services-informatiques/identite/cartes-de-visite",
+      },
+      {
+        label: "Signalétique & habillage",
+        href: "/services-informatiques/identite/signaletique",
+      },
       { label: "Prestations & tarifs", href: "/services-informatiques/identite" },
       { label: "Nos réalisations", href: "/realisations" },
     ],
+    // Deux aperçus seulement : je n'ai pas de photo de travail graphique réel.
+    // Padder avec une image de tablette pour « Création de logo » donnerait
+    // exactement le décalage image/titre déjà reproché. À compléter dès que le
+    // portfolio fournit de vrais visuels.
     previews: [
       {
-        image: "/media/portraits/tablette-android-en-main.jpg",
-        label: "Réalisations",
+        image: "/media/portraits/service-design-branding.jpg",
+        label: "Notre approche",
+        href: "/design-branding",
+      },
+      {
+        image: "/media/portraits/ambiance-lampe-led-rgb.jpg",
+        label: "Nos réalisations",
         href: "/realisations",
       },
     ],
@@ -123,11 +197,15 @@ export const PILLARS: readonly NavPillar[] = [
     links: [
       { label: "Envoyer de l'argent", href: "/transfert-argent", note: "Taux du jour" },
       { label: "Suivre un transfert", href: "/transfert-argent/suivi" },
-      { label: "MoneyGram", href: "/transfert-argent" },
-      { label: "Orange Money", href: "/transfert-argent" },
-      { label: "Western Union", href: "/transfert-argent" },
-      { label: "Virement bancaire", href: "/transfert-argent" },
-      { label: "Calculer les frais", href: "/transfert-argent", note: "Simulateur" },
+      // Chaque canal ouvre directement son propre parcours. Cliquer sur
+      // « MoneyGram » puis devoir rechoisir MoneyGram était une étape pour
+      // rien : le choix est déjà fait au moment du clic.
+      { label: "MoneyGram", href: "/transfert-argent/moneygram" },
+      { label: "Orange Money", href: "/transfert-argent?service=orange-money" },
+      {
+        label: "Western Union",
+        href: "/transfert-argent?service=western-union",
+      },
     ],
     previews: [],
   },
@@ -147,9 +225,24 @@ export const PILLARS: readonly NavPillar[] = [
     ],
     previews: [
       {
-        image: "/media/portraits/gaming-manette-gamesir-console.jpg",
-        label: "Import direct",
+        image: "/media/portraits/pilier-import.jpg",
+        label: "Fret Chine ↔ Bangui",
         href: "/transit-import",
+      },
+      {
+        image: "/media/vehicules/toyota-rav4-avant.jpg",
+        label: "Toyota RAV4",
+        href: "/vehicules",
+      },
+      {
+        image: "/media/vehicules/landcruiser-prado-avant.jpg",
+        label: "Land Cruiser Prado",
+        href: "/vehicules",
+      },
+      {
+        image: "/media/portraits/service-import-export.jpg",
+        label: "Suivre une expédition",
+        href: "/transit-import/carte",
       },
     ],
   },
@@ -160,7 +253,7 @@ export const PILLARS: readonly NavPillar[] = [
     intro: "Vos services préférés, activés en un instant.",
     links: [
       { label: "Netflix", href: "/abonnements/netflix", logo: "/media/logos/netflix.svg" },
-      { label: "Amazon Prime", href: "/abonnements/amazon", logo: "/media/logos/amazon.svg" },
+      { label: "Amazon Prime", href: "/abonnements/amazon", logo: "/media/logos/primevideo.svg" },
       { label: "IPTV", href: "/abonnements/iptv", logo: "/media/logos/iptv.svg" },
       { label: "Spotify", href: "/abonnements/spotify", logo: "/media/logos/spotify.svg" },
       { label: "Apple Music", href: "/abonnements/applemusic", logo: "/media/logos/applemusic.svg" },

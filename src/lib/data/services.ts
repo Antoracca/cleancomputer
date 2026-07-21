@@ -244,6 +244,48 @@ export const FAMILLES: readonly FamilleService[] = [
         delai: "Sous 48 h",
         inclus: ["Nom de domaine", "Alias illimités", "Configuration sur mobile"],
       },
+      {
+        slug: "flyers-affiches",
+        nom: "Flyers & affiches",
+        description:
+          "Conception d'un support imprimable, décliné aux formats dont vous avez besoin.",
+        prixBaseXaf: 45000,
+        unite: "forfait",
+        delai: "3 à 5 jours",
+        inclus: [
+          "Deux propositions",
+          "Fichier prêt pour l'imprimeur",
+          "Version carrée pour les réseaux",
+        ],
+      },
+      {
+        slug: "cartes-de-visite",
+        nom: "Cartes de visite",
+        description:
+          "Recto-verso à votre charte, calibré pour l'impression locale.",
+        prixBaseXaf: 30000,
+        unite: "forfait",
+        delai: "2 à 4 jours",
+        inclus: [
+          "Recto-verso",
+          "Fonds perdus et repères de coupe",
+          "Déclinaison par collaborateur",
+        ],
+      },
+      {
+        slug: "signaletique",
+        nom: "Signalétique & habillage",
+        description:
+          "Enseigne, vitrine, bâche et marquage véhicule aux dimensions réelles.",
+        prixBaseXaf: 95000,
+        unite: "forfait",
+        delai: "1 à 2 semaines",
+        inclus: [
+          "Relevé des dimensions",
+          "Simulation en situation",
+          "Fichiers grand format",
+        ],
+      },
     ],
   },
 ] as const;
@@ -254,4 +296,29 @@ export function getFamille(slug: string): FamilleService | undefined {
 
 export function getToutesPrestations(): readonly Prestation[] {
   return FAMILLES.flatMap((f) => f.prestations);
+}
+
+/**
+ * Une prestation est toujours résolue DANS sa famille. Deux familles pourraient
+ * un jour proposer un slug identique ; la paire reste alors sans ambiguïté.
+ */
+export function getPrestation(
+  familleSlug: string,
+  prestationSlug: string,
+): { famille: FamilleService; prestation: Prestation } | undefined {
+  const famille = getFamille(familleSlug);
+  if (!famille) return undefined;
+  const prestation = famille.prestations.find((p) => p.slug === prestationSlug);
+  if (!prestation) return undefined;
+  return { famille, prestation };
+}
+
+/** Les autres prestations de la même famille, pour le maillage en bas de fiche. */
+export function getPrestationsVoisines(
+  familleSlug: string,
+  prestationSlug: string,
+): readonly Prestation[] {
+  const famille = getFamille(familleSlug);
+  if (!famille) return [];
+  return famille.prestations.filter((p) => p.slug !== prestationSlug);
 }

@@ -171,6 +171,36 @@ clavier → ajout panier → checkout → commande CC-MRRYZ6V3MUG écrite en bas
 suivi refusé avec un mauvais téléphone, accepté avec le bon. Une commande de
 test « Test Fable » reste en base — à annuler depuis /admin/commandes.
 
+**21/07/2026** — Audit et réparation de la navigation. 60 liens de la navbar
+croisés avec les routes réelles : 24 étaient cassés ou trompeurs. Créé les 5
+catégories absentes (composants, ecrans, stockage, cables, mobiles) et la route
+`[famille]/[prestation]`, qui supprime les 11 liens Services et Design pointant
+tous vers 4 pages de famille. Remonté au menu 3 catégories existantes mais
+invisibles (television, logiciels, photo). Retiré de Transfert « Virement
+bancaire » (aucun opérateur correspondant) et « Simulateur » (contredisait la
+décision de bannir ce mot). Section Abonnements créée de zéro : 18 fiches, les
+19 liens renvoyaient tous une 404. Catalogue enrichi de 67 produits dont 27
+composants PC. Aperçus du mega-menu passés à quatre en grille 2×2.
+
+Garde-fou ajouté : `scripts/check-navigation.mjs` vérifie que chaque image
+existe sur le disque et que chaque lien correspond à une route servie. Un lien
+mort ne casse pas la compilation, il ne se voit qu'au clic donc chez le client.
+
+**Audit des logos de marque.** Trois fichiers étaient faux : `canalplus.svg` et
+`mycanal.svg` étaient des rectangles noirs avec du texte tapé en Arial,
+`starlink.svg` était le logo SpaceX (`<title>SpaceX</title>`). `meta.svg` était
+un assemblage maison réutilisant le tracé de Facebook, remplacé par le vrai
+vectoriel Simple Icons. Aucun vectoriel authentique n'existe pour Canal+ et
+Starlink : composant `MarqueLogo` avec repli typographique, plutôt qu'une
+approximation présentée comme le logo officiel. Vérification faite : Amazon,
+Disney+, Xbox et Adobe sont de vrais tracés, mon soupçon initial était infondé.
+
+Vérifié par build de production : 193 pages prérendues, 98 images produits
+référencées et toutes présentes, zéro lien mort. **Prix inventés partout,
+marqués `TODO_TARIFS`.** Deux points à trancher par le client : le repli
+typographique ou des kits presse officiels, et l'exposition liée à la revente
+d'abonnements Netflix, Disney+ et Spotify (contraire à leurs CGU).
+
 **19/07/2026 (4)** — Supabase connecté, authentification branchée (connexion,
 inscription, mot de passe oublié, déconnexion, middleware de session, espace
 client réel avec redirection admin). Document fiscal intégré : ETS CLEAN,
