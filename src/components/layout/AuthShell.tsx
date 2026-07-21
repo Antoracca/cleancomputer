@@ -52,7 +52,7 @@ export function AuthShell({
         <div className="grid gap-14 lg:grid-cols-[1fr_28rem] lg:items-center xl:gap-20">
           
           {/* Colonne de gauche : Argumentaire très visuel (façon MoneyGram) */}
-          <div className="relative z-10 flex flex-col gap-6 lg:gap-8">
+          <div className="animate-reveal relative z-10 flex flex-col gap-6 lg:gap-8">
             <span className="text-[1.0625rem] font-bold tracking-[-0.01em] text-[#2c6ecb]">
               {eyebrow}
             </span>
@@ -80,7 +80,10 @@ export function AuthShell({
           </div>
 
           {/* Colonne de droite : Carte formulaire flottante */}
-          <div className="relative z-10 w-full max-w-md mx-auto lg:max-w-none lg:mt-0 mt-4">
+          <div 
+            className="animate-slide-in-right relative z-10 w-full max-w-md mx-auto mt-4 lg:mt-0 lg:max-w-none"
+            style={{ animationDelay: "150ms" }}
+          >
             {/* Liseré dégradé qui dépasse sous la carte pour l'effet de flottaison */}
             <span
               aria-hidden
