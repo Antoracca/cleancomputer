@@ -385,7 +385,7 @@ export default async function HomePage() {
         <Container>
           <div className="grid items-center gap-12 lg:grid-cols-[1.25fr_1fr] lg:gap-16">
             <LocalVideo
-              src="/video/Trailerwindow11.mkv"
+              src="/video/Trailerwindow11.mp4"
               affiche="/media/video/windows11-affiche.jpg"
               titre="Windows 11 en action"
             />
