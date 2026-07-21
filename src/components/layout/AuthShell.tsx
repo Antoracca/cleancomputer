@@ -1,13 +1,14 @@
 import Link from "next/link";
-import Image from "next/image";
-import { EyebrowLabel } from "@/components/shared/EyebrowLabel";
+import { Check } from "lucide-react";
 
 /**
- * COQUILLE D'AUTHENTIFICATION
+ * COQUILLE D'AUTHENTIFICATION (Refonte Premium)
  *
- * Deux colonnes : le formulaire à gauche sur canevas, un panneau Ink à droite
- * qui rappelle ce que le compte débloque. Le panneau disparaît sous lg — sur
- * mobile, on ne met rien entre l'utilisateur et le champ de saisie.
+ * S'inspire de la mise en page MoneyGram :
+ * - Dégradé chaud et accueillant en fond.
+ * - Typographie très grasse et texturée à gauche.
+ * - Formulaire dans une carte blanche flottante à droite, avec liseré dégradé.
+ * - Rendu parfait sur mobile (carte qui remonte) comme sur PC.
  */
 export function AuthShell({
   eyebrow,
@@ -27,81 +28,83 @@ export function AuthShell({
   asidePoints: readonly string[];
 }) {
   return (
-    <div className="grid min-h-dvh lg:grid-cols-[1fr_minmax(0,520px)]">
-      {/* Formulaire */}
-      <div className="flex items-center justify-center px-6 pt-32 pb-20 md:px-12 lg:pt-24">
-        <div className="flex w-full max-w-md flex-col gap-8">
-          <div className="flex flex-col gap-4">
-            <EyebrowLabel>{eyebrow}</EyebrowLabel>
-            <h1 className="text-[clamp(1.75rem,4vw,2.5rem)] leading-[1.1] font-medium tracking-[-0.02em] text-ink">
-              {title}
-            </h1>
-            <p className="text-body text-graphite">{intro}</p>
-          </div>
-
-          {children}
-
-          <div className="border-t border-mist/60 pt-6 text-[0.9375rem] text-graphite">
-            {footer}
-          </div>
-        </div>
+    <div className="relative flex min-h-dvh flex-col overflow-hidden bg-[linear-gradient(105deg,#dff1f7_0%,#f4f0e6_38%,#ffe2c4_66%,#ffb695_100%)] px-4 py-10 sm:px-8 md:py-16 lg:justify-center">
+      {/* Éléments décoratifs en arrière-plan pour donner de la profondeur */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="absolute -top-[20%] -right-[10%] h-[60%] w-[50%] rounded-full bg-white/50 blur-[120px]" />
+        <div className="absolute -bottom-[20%] -left-[10%] h-[60%] w-[50%] rounded-full bg-[#f5402c]/5 blur-[120px]" />
       </div>
 
-      {/* Panneau Ink — argumentaire, jamais un simple visuel décoratif */}
-      <aside className="relative hidden overflow-hidden bg-ink p-14 lg:flex lg:flex-col lg:justify-between">
-        <svg
-          aria-hidden
-          viewBox="0 0 520 600"
-          fill="none"
-          className="pointer-events-none absolute inset-0 h-full w-full"
+      <div className="mx-auto w-full max-w-[1280px]">
+        {/* Le logo : visible sur mobile et desktop, rendu net */}
+        <Link
+          href="/"
+          className="relative z-10 mb-10 block w-fit transition-transform hover:scale-105 active:scale-95 lg:mb-16"
+          aria-label="Retour à l'accueil"
         >
-          <path
-            d="M -40 520 C 90 430, 200 370, 330 330 C 440 296, 510 210, 560 90"
-            stroke="var(--color-orbit)"
-            strokeWidth="1.25"
-            strokeLinecap="round"
-            opacity="0.45"
-          />
-          <path
-            d="M -40 600 C 110 500, 240 450, 380 400 C 480 364, 540 280, 580 180"
-            stroke="var(--color-orbit)"
-            strokeWidth="1.25"
-            strokeLinecap="round"
-            opacity="0.2"
-          />
-        </svg>
-
-        <Link href="/" className="relative w-fit">
-          {/* Le pictogramme est bleu marque : sur la surface encre, le
-              contraste est trop faible pour être lisible. On le passe en
-              blanc plutôt que d'ajouter un fichier d'inversion. */}
-          <Image
-            src="/brand/logo-mark.png"
+          <img
+            src="/brand/logo-full.png"
             alt="Clean Computer"
-            width={512}
-            height={512}
-            className="size-11 object-contain brightness-0 invert"
+            className="h-10 w-auto object-contain drop-shadow-sm sm:h-12"
           />
         </Link>
 
-        <div className="relative flex flex-col gap-8">
-          <h2 className="text-display text-white">{asideTitle}</h2>
-          <ul className="flex flex-col gap-4">
-            {asidePoints.map((point) => (
-              <li
-                key={point}
-                className="flex items-start gap-3 text-body text-white/70"
-              >
-                <span
-                  aria-hidden
-                  className="mt-2 size-1.5 shrink-0 rounded-full bg-orbit"
-                />
-                {point}
-              </li>
-            ))}
-          </ul>
+        <div className="grid gap-14 lg:grid-cols-[1fr_28rem] lg:items-center xl:gap-20">
+          
+          {/* Colonne de gauche : Argumentaire très visuel (façon MoneyGram) */}
+          <div className="relative z-10 flex flex-col gap-6 lg:gap-8">
+            <span className="text-[1.0625rem] font-bold tracking-[-0.01em] text-[#2c6ecb]">
+              {eyebrow}
+            </span>
+            
+            <h1 className="max-w-2xl text-[clamp(2.5rem,7vw,4.5rem)] leading-[0.98] font-extrabold tracking-[-0.035em] text-ink">
+              {asideTitle}
+            </h1>
+            
+            <p className="max-w-lg text-[1.0625rem] leading-relaxed text-ink/75">
+              {intro}
+            </p>
+
+            <ul className="mt-4 flex flex-col gap-5">
+              {asidePoints.map((point) => (
+                <li key={point} className="flex items-start gap-4">
+                  <span className="mt-0.5 grid size-6 shrink-0 place-items-center rounded-full bg-[#f5402c] text-white shadow-sm">
+                    <Check size={14} strokeWidth={3} aria-hidden />
+                  </span>
+                  <span className="text-[1.0625rem] font-bold tracking-[-0.01em] text-ink">
+                    {point}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Colonne de droite : Carte formulaire flottante */}
+          <div className="relative z-10 w-full max-w-md mx-auto lg:max-w-none lg:mt-0 mt-4">
+            {/* Liseré dégradé qui dépasse sous la carte pour l'effet de flottaison */}
+            <span
+              aria-hidden
+              className="absolute inset-x-3 -bottom-2 h-10 rounded-[1.75rem] bg-[linear-gradient(100deg,#bfe3ec_0%,#f6ecd8_50%,#ffcf9e_100%)] shadow-xl"
+            />
+            
+            {/* La carte blanche contenant le formulaire */}
+            <div className="relative flex flex-col rounded-[1.75rem] bg-white p-7 shadow-[0_24px_60px_-24px_rgba(15,21,32,0.28)] ring-1 ring-black/5 md:p-10">
+              
+              <div className="mb-8 flex flex-col gap-2 text-center">
+                <h2 className="text-[1.75rem] leading-[1.1] font-extrabold tracking-[-0.02em] text-ink">
+                  {title}
+                </h2>
+              </div>
+
+              {children}
+
+              <div className="mt-8 border-t border-mist/60 pt-6 text-center text-[0.9375rem] text-graphite">
+                {footer}
+              </div>
+            </div>
+          </div>
         </div>
-      </aside>
+      </div>
     </div>
   );
 }
