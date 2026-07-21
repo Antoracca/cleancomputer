@@ -251,7 +251,7 @@ export default async function HomePage() {
                 size="lg"
                 className="border-white/40 bg-transparent text-white hover:border-white hover:bg-white hover:text-ink"
               >
-                <Link href="/devis">Chiffrer mon projet</Link>
+                <Link href="/devis">Passer une demande</Link>
               </Button>
             </div>
           </div>

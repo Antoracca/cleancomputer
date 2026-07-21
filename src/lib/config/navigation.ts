@@ -273,4 +273,30 @@ export const PILLARS: readonly NavPillar[] = [
     ],
     previews: [],
   },
+  {
+    id: "entreprise",
+    label: "Entreprise",
+    href: "/entreprise",
+    intro: "Solutions sur mesure pour les professionnels, PME et ONG.",
+    links: [
+      { label: "Pour les PME", href: "/entreprise/pme" },
+      { label: "Pour les ONG", href: "/entreprise/ong" },
+      { label: "Demande de cotation", href: "/entreprise/cotation" },
+      { label: "Traitement de cotation", href: "/entreprise/traitement-cotation" },
+      { label: "Partenariat", href: "/entreprise/partenariat" },
+      { label: "Fourniture de matériel pro", href: "/entreprise/fourniture" },
+    ],
+    previews: [
+      {
+        image: "/media/portraits/logiciel-office-pro-plus-2024.jpg",
+        label: "Demande de cotation",
+        href: "/entreprise/cotation",
+      },
+      {
+        image: "/media/portraits/service-design-branding.jpg",
+        label: "Partenariat",
+        href: "/entreprise/partenariat",
+      },
+    ],
+  },
 ] as const;

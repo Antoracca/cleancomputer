@@ -115,7 +115,7 @@ export function MobileMenu({
           <EyebrowLabel>Votre projet</EyebrowLabel>
           <Button asChild size="lg" className="w-full">
             <Link href="/devis" onClick={onClose}>
-              Chiffrer mon projet
+              Passer une demande
             </Link>
           </Button>
           <Button asChild variant="secondary" size="lg" className="w-full">

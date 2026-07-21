@@ -110,7 +110,7 @@ export default async function FamillePage({
           </p>
           <div className="flex flex-col gap-3 sm:flex-row">
             <Button asChild size="lg">
-              <Link href="/devis">Chiffrer mon projet</Link>
+              <Link href="/devis">Passer une demande</Link>
             </Button>
             <Button asChild variant="secondary" size="lg">
               <Link href="/contact">Nous écrire</Link>
