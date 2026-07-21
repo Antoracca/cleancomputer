@@ -288,12 +288,12 @@ export const PILLARS: readonly NavPillar[] = [
     ],
     previews: [
       {
-        image: "/media/portraits/logiciel-office-pro-plus-2024.jpg",
+        image: "/logo/cotation.png",
         label: "Demande de cotation",
         href: "/entreprise/cotation",
       },
       {
-        image: "/media/portraits/service-design-branding.jpg",
+        image: "/logo/partenariat.png",
         label: "Partenariat",
         href: "/entreprise/partenariat",
       },
